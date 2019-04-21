@@ -1,0 +1,375 @@
+<?xml version="1.0"?>
+
+<!-- SUMPAC Human-Powered Airplane  -->
+<!-- Copyright 2014 Marshall Gusman -->
+
+<PropertyList>
+
+    <!-- AC file is courtesy of SunLightEagle model for CRRC sim -->
+    <path>Aircraft/SUMPAC/Models/sumpac.ac</path>
+    <offsets>
+        <x-m>0</x-m>
+        <y-m>0</y-m>
+        <z-m>0</z-m>
+        <scale>0</scale>
+        <pitch-deg>0.0</pitch-deg>
+    </offsets>
+
+    <!-- ALS volume shadow  -->
+    <!--model>
+        <path>Effects/shadow/shadow.xml</path>
+    </model-->
+
+    <params>
+        <gear>
+            <front-rollspeed-ms>engines/engine[3]/n1</front-rollspeed-ms>
+            <back-rollspeed-ms>engines/engine[3]/n2</back-rollspeed-ms>
+        </gear>
+    </params>
+
+    <!--  Specularity fix -->
+    <animation>
+        <type>material</type>
+        <object-name>rudder</object-name>
+        <object-name>rudder-cable</object-name>
+        <object-name>rudder-truss</object-name>
+        <object-name>horizontal-stab</object-name>
+        <object-name>horizontal-stab-leading-edge</object-name>
+        <object-name>horizontal-stab-leading-edge-faces</object-name>
+        <object-name>horizontal-stab-midsection-faces</object-name>
+        <object-name>horizontal-stab-truss</object-name>
+        <object-name>elevator</object-name>
+        <object-name>elevator-truss</object-name>
+        <object-name>elevator-cable</object-name>
+        <object-name>vertical-stab</object-name>
+        <object-name>vertical-stab-truss</object-name>
+        <object-name>fuselage-truss</object-name>
+        <object-name>fuselage</object-name>
+        <object-name>front-wheel</object-name>
+        <object-name>back-wheel</object-name>
+        <object-name>tail-wheel</object-name>
+        <object-name>wing-left</object-name>
+        <object-name>wing-left-hardware</object-name>
+        <object-name>wing-right</object-name>
+        <object-name>wing-right-hardware</object-name>
+        <object-name>pulleys</object-name>
+        <object-name>hardware</object-name>
+        <object-name>paneling</object-name>
+        <object-name>steering-column</object-name>
+        <object-name>framing</object-name>
+        <object-name>propeller-housing</object-name>
+        <object-name>propeller-wiring</object-name>
+        <object-name>propeller</object-name>
+        <object-name>propeller-hub</object-name>
+        <object-name>wing-cable</object-name>
+        <object-name>aileron-left-cable</object-name>
+        <object-name>aileron-left-spring</object-name>
+        <object-name>wing-left-aileron-control-bracket</object-name>
+        <object-name>left-aileron</object-name>
+        <object-name>wing-left-leading-edge</object-name>
+        <object-name>wing-left-leading-edge-faces</object-name>
+        <object-name>wing-left-truss</object-name>
+        <object-name>wing-left-wheel</object-name>
+        <object-name>aileron-right-cable</object-name>
+        <object-name>aileron-right-spring</object-name>
+        <object-name>wing-right-aileron-control-bracket</object-name>
+        <object-name>right-aileron</object-name>
+        <object-name>wing-right-leading-edge</object-name>
+        <object-name>wing-right-leading-edge-faces</object-name>
+        <object-name>wing-right-truss</object-name>
+        <object-name>wing-right-wheel</object-name>
+        <shininess>128</shininess>
+        <specular>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+        </specular>
+        <ambient>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+        </ambient>
+    </animation>
+
+    <!-- exterior effects -->
+    <!-- inherits model-combined-deferred -->
+    <effect>
+        <inherits-from>Aircraft/SUMPAC/Models/Effects/sumpac-exterior</inherits-from>
+        <object-name>rudder</object-name>
+        <object-name>rudder-cable</object-name>
+        <object-name>rudder-truss</object-name>
+        <object-name>horizontal-stab</object-name>
+        <object-name>horizontal-stab-leading-edge</object-name>
+        <object-name>horizontal-stab-leading-edge-faces</object-name>
+        <object-name>horizontal-stab-midsection-faces</object-name>
+        <object-name>horizontal-stab-truss</object-name>
+        <object-name>elevator</object-name>
+        <object-name>elevator-truss</object-name>
+        <object-name>elevator-cable</object-name>
+        <object-name>vertical-stab</object-name>
+        <object-name>vertical-stab-truss</object-name>
+        <object-name>fuselage-truss</object-name>
+        <object-name>fuselage</object-name>
+        <object-name>front-wheel</object-name>
+        <object-name>back-wheel</object-name>
+        <object-name>tail-wheel</object-name>
+        <object-name>wing-left</object-name>
+        <object-name>wing-left-hardware</object-name>
+        <object-name>wing-right</object-name>
+        <object-name>wing-right-hardware</object-name>
+        <object-name>pulleys</object-name>
+        <object-name>hardware</object-name>
+        <object-name>paneling</object-name>
+        <object-name>steering-column</object-name>
+        <object-name>framing</object-name>
+        <object-name>propeller-housing</object-name>
+        <object-name>propeller-wiring</object-name>
+        <object-name>propeller</object-name>
+        <object-name>propeller-hub</object-name>
+        <object-name>wing-cable</object-name>
+        <object-name>aileron-left-cable</object-name>
+        <object-name>aileron-left-spring</object-name>
+        <object-name>wing-left-aileron-control-bracket</object-name>
+        <object-name>left-aileron</object-name>
+        <object-name>wing-left-leading-edge</object-name>
+        <object-name>wing-left-leading-edge-faces</object-name>
+        <object-name>wing-left-truss</object-name>
+        <object-name>wing-left-wheel</object-name>
+        <object-name>aileron-right-cable</object-name>
+        <object-name>aileron-right-spring</object-name>
+        <object-name>wing-right-aileron-control-bracket</object-name>
+        <object-name>right-aileron</object-name>
+        <object-name>wing-right-leading-edge</object-name>
+        <object-name>wing-right-leading-edge-faces</object-name>
+        <object-name>wing-right-truss</object-name>
+        <object-name>wing-right-wheel</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>Aircraft/SUMPAC/Models/Effects/sumpac-exterior-glass-reflection</inherits-from>
+        <object-name>windscreen-exterior</object-name>
+    </effect>
+    <effect>
+        <inherits-from>Aircraft/SUMPAC/Models/Effects/sumpac-interior-glass-reflection</inherits-from>
+        <object-name>windscreen-interior</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>Effects/model-transparent</inherits-from>
+        <object-name>propeller-fast</object-name>
+    </effect>
+
+    <!-- interior effects -->
+    <effect>
+        <inherits-from>Aircraft/SUMPAC/Models/Effects/sumpac-interior</inherits-from>
+        <object-name>cockpit-interior</object-name>
+    </effect>
+
+   <animation>
+        <type>select</type>
+        <object-name>propeller-fast</object-name>
+        <condition>
+            <greater-than>
+                <!--property alias="/params/engine/rpm"/-->
+                <property>engines/engine/rpm</property>
+                <value>225</value>
+            </greater-than>
+        </condition>
+  </animation>
+
+   <animation>
+        <type>select</type>
+        <object-name>propeller</object-name>
+        <condition>
+            <less-than>
+                <!--property alias="/params/engine/rpm"/-->
+                <property>engines/engine/rpm</property>
+                <value>250</value>
+            </less-than>
+        </condition>
+  </animation>
+
+  <animation>
+      <type>blend</type>
+      <object-name>propeller-fast</object-name>
+      <!--property alias="/params/engine/rpm"/-->
+      <property>engines/engine/rpm</property>
+      <factor>0.0004</factor>
+      <max>1.0</max>
+      <min>0.0</min>
+  </animation>
+
+  <animation>
+  	<object-name>propeller</object-name>
+    <object-name>propeller-hub</object-name>
+  	<type>spin</type>
+    <property>engines/engine/rpm</property>
+    <factor>1</factor>
+    <axis>
+        <x1-m> 1.45136</x1-m>
+        <y1-m> 0.00607</y1-m>
+        <z1-m> 1.59036</z1-m>
+        <x2-m> 0.94026</x2-m>
+        <y2-m> 0.01018</y2-m>
+        <z2-m> 1.55882</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+  	<type>rotate</type>
+  	    <object-name>elevator-truss</object-name>
+        <object-name>elevator</object-name>
+  	<property>/controls/flight/elevator</property>
+  	<min-deg>-20</min-deg>
+  	<max-deg>20</max-deg>
+  	<factor>-20</factor>
+  	<center>
+  		<x-m> 5.64308</x-m>
+  		<y-m>-0.01307</y-m>
+  		<z-m> 0.01116</z-m>
+  	</center>
+  	<axis>
+  		<x>0</x>
+  		<y>-1</y>
+  		<z>0</z>
+  	</axis>
+  </animation>
+
+  <animation>
+        <type>spin</type>
+        <object-name>front-wheel</object-name>
+        <property alias="/params/gear/front-rollspeed-ms"/>
+        <factor>10</factor>
+        <axis>
+            <x> 0</x>
+            <y>-1</y>
+            <z> 0</z>
+        </axis>
+        <center>
+            <x-m>-0.88216</x-m>
+            <y-m> 0.01366</y-m>
+            <z-m>-0.77708</z-m>
+        </center>
+  </animation>
+
+  <animation>
+        <type>spin</type>
+        <object-name>back-wheel</object-name>
+        <property alias="/params/gear/back-rollspeed-ms"/>
+        <factor>2.87</factor>
+        <axis>
+            <x> 0</x>
+            <y>-1</y>
+            <z> 0</z>
+        </axis>
+        <center>
+            <x-m> 0.05341</x-m>
+            <y-m>-0.02206</y-m>
+            <z-m>-0.52982</z-m>
+        </center>
+  </animation>
+
+  <animation>
+        <type>spin</type>
+        <object-name>tail-wheel</object-name>
+        <property alias="/params/gear/back-rollspeed-ms"/>
+        <factor>25</factor>
+        <axis>
+            <x> 0</x>
+            <y>-1</y>
+            <z> 0</z>
+        </axis>
+        <center>
+            <x-m> 4.94543</x-m>
+            <y-m>-0.05199</y-m>
+            <z-m>-0.23039</z-m>
+        </center>
+  </animation>
+
+  <animation>
+        <type>spin</type>
+        <object-name>wing-left-wheel</object-name>
+        <property alias="/params/gear/back-rollspeed-ms"/>
+        <factor>25</factor>
+        <axis>
+            <x> 0</x>
+            <y>-1</y>
+            <z> 0</z>
+        </axis>
+        <center>
+            <x-m>-0.21368</x-m>
+            <y-m>-3.17608</y-m>
+            <z-m>-0.72912</z-m>
+        </center>
+  </animation>
+
+  <animation>
+        <type>spin</type>
+        <object-name>wing-right-wheel</object-name>
+        <property alias="/params/gear/back-rollspeed-ms"/>
+        <factor>25</factor>
+        <axis>
+            <x> 0</x>
+            <y>-1</y>
+            <z> 0</z>
+        </axis>
+        <center>
+            <x-m>-0.19972</x-m>
+            <y-m> 3.16383</y-m>
+            <z-m>-0.77852</z-m>
+        </center>
+  </animation>
+
+  <animation>
+  	<type>rotate</type>
+  	<object-name>rudder</object-name>
+    <object-name>rudder-truss</object-name>
+  	<property>/controls/flight/rudder</property>
+  	<min-deg>-20</min-deg>
+  	<max-deg>20</max-deg>
+    <factor>-20</factor>
+    <axis>
+        <x1-m> 4.64722</x1-m>
+        <y1-m> 0.00643</y1-m>
+        <z1-m> 2.18222</z1-m>
+        <x2-m> 4.77629</x2-m>
+        <y2-m>-0.01029</y2-m>
+        <z2-m> 0.03666</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+  	<type>rotate</type>
+  	<object-name>left-aileron</object-name>
+  	<property>/controls/flight/aileron</property>
+  	<min-deg>-20</min-deg>
+  	<max-deg>20</max-deg>
+  	<factor>20</factor>
+  	<axis>
+        <x1-m>  0.10333</x1-m>
+        <y1-m>-10.80022</y1-m>
+        <z1-m>  0.55663</z1-m>
+        <x2-m>  0.25648</x2-m>
+        <y2-m> -6.26516</y2-m>
+        <z2-m>  0.33457</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+  	<type>rotate</type>
+  	<object-name>right-aileron</object-name>
+  	<property>/controls/flight/aileron</property>
+  	<min-deg>-20</min-deg>
+  	<max-deg>20</max-deg>
+  	<factor>-20</factor>
+  	<axis>
+        <x1-m>  0.2825</x1-m>
+        <y1-m>  6.26587</y1-m>
+        <z1-m>  0.23745</z1-m>
+        <x2-m>  0.15603</x2-m>
+        <y2-m> 10.80553</y2-m>
+        <z2-m>  0.38957</z2-m>
+    </axis>
+  </animation>
+
+ </PropertyList>

@@ -1,0 +1,17 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+Original Files DaSH: *
+Copyright: 2018 Marshall Gusman
+License: GPL-2+
+
+Files: sumpac.ac
+Copyright: 2019 Aurora Flight Sciences
+License: GPL-2+
+
+Additional and modified files:
+Wayne Bragg
+License: GPL-2+
+
+Power curve concept and functions
+Aaron Bragg
+License: GPL-2+

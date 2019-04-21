@@ -1,0 +1,8 @@
+<?xml version="1.0"?> 
+
+<!-- SUMPAC Human-Powered Airplane -->
+<!-- Copyright 2019 Wayne Bragg -->
+
+<electric_engine name="legs">
+	 <power unit="WATTS"> 2378 </power>
+</electric_engine>
