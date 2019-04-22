@@ -25,6 +25,14 @@
             </item-->
 
             <item>
+                <label>Mylar Covering</label>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>/sim/model/covering</property>
+                </binding>
+            </item>
+
+            <item>
                 <label>Power Output On/Off</label>
                 <binding>
                     <command>property-toggle</command>

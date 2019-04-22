@@ -27,7 +27,7 @@
         <cockpit type="int">1</cockpit>
     </rating>
     
-    <author>Marshall Gusman (FDM), Wayne Bragg (3D, power curves, effects)</author>
+    <author>Marshall Gusman (DaSH FDM), Wayne Bragg (3D, power curves, effects)</author>
     
     <flight-model>jsb</flight-model>
     
@@ -81,7 +81,8 @@
     </startup>
 
     <model>
-      <path>Aircraft/SUMPAC/Models/sumpac-model.xml</path>
+        <path>Aircraft/SUMPAC/Models/sumpac-model.xml</path>
+        <covering type="bool">false</covering>
     </model>
 
 <!--

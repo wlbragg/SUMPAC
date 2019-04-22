@@ -54,7 +54,6 @@
         <object-name>wing-right-hardware</object-name>
         <object-name>pulleys</object-name>
         <object-name>hardware</object-name>
-        <object-name>paneling</object-name>
         <object-name>steering-column</object-name>
         <object-name>framing</object-name>
         <object-name>propeller-housing</object-name>
@@ -119,7 +118,6 @@
         <object-name>wing-right-hardware</object-name>
         <object-name>pulleys</object-name>
         <object-name>hardware</object-name>
-        <object-name>paneling</object-name>
         <object-name>steering-column</object-name>
         <object-name>framing</object-name>
         <object-name>propeller-housing</object-name>
@@ -148,6 +146,9 @@
     <effect>
         <inherits-from>Aircraft/SUMPAC/Models/Effects/sumpac-exterior-glass-reflection</inherits-from>
         <object-name>windscreen-exterior</object-name>
+        <object-name>wing-right-plastic</object-name>
+        <object-name>fuselage-plastic</object-name>
+        <object-name>propeller-housing-plastic</object-name>
     </effect>
     <effect>
         <inherits-from>Aircraft/SUMPAC/Models/Effects/sumpac-interior-glass-reflection</inherits-from>
@@ -165,7 +166,15 @@
         <object-name>cockpit-interior</object-name>
     </effect>
 
-   <animation>
+    <animation>
+        <type>select</type>
+        <object-name>propeller-housing-plastic</object-name>
+        <condition>
+            <property>sim/model/covering</property>
+        </condition>
+    </animation>
+
+    <animation>
         <type>select</type>
         <object-name>propeller-fast</object-name>
         <condition>
@@ -175,9 +184,9 @@
                 <value>225</value>
             </greater-than>
         </condition>
-  </animation>
+    </animation>
 
-   <animation>
+    <animation>
         <type>select</type>
         <object-name>propeller</object-name>
         <condition>
@@ -187,17 +196,17 @@
                 <value>250</value>
             </less-than>
         </condition>
-  </animation>
+    </animation>
 
-  <animation>
-      <type>blend</type>
-      <object-name>propeller-fast</object-name>
-      <!--property alias="/params/engine/rpm"/-->
-      <property>engines/engine/rpm</property>
-      <factor>0.0004</factor>
-      <max>1.0</max>
-      <min>0.0</min>
-  </animation>
+    <animation>
+        <type>blend</type>
+        <object-name>propeller-fast</object-name>
+        <!--property alias="/params/engine/rpm"/-->
+        <property>engines/engine/rpm</property>
+        <factor>0.0004</factor>
+        <max>1.0</max>
+        <min>0.0</min>
+    </animation>
 
   <animation>
   	<object-name>propeller</object-name>
