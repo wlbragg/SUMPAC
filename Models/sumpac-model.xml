@@ -168,6 +168,8 @@
 
     <animation>
         <type>select</type>
+        <object-name>wing-right-plastic</object-name>
+        <object-name>fuselage-plastic</object-name>
         <object-name>propeller-housing-plastic</object-name>
         <condition>
             <property>sim/model/covering</property>
