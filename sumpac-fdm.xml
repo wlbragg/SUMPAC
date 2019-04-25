@@ -99,9 +99,9 @@
      <y> 0.000</y>
      <z>-0.125</z>
    </location>
-   <static_friction>  0.800 </static_friction>
-   <dynamic_friction> 0.500 </dynamic_friction>
-   <rolling_friction> 0.020 </rolling_friction>
+   <static_friction>  0.80 </static_friction>
+   <dynamic_friction> 0.50 </dynamic_friction>
+   <rolling_friction> 0.0175 </rolling_friction>
    <spring_coeff  unit="N/M">      5000.00 </spring_coeff>
    <damping_coeff unit="N/M/SEC">   500.00 </damping_coeff>
    <max_steer unit="DEG">0</max_steer>
@@ -115,9 +115,9 @@
       <y>-0.000</y>
       <z>-0.15 </z>
     </location>
-    <static_friction>  0.800 </static_friction>
-    <dynamic_friction> 0.500 </dynamic_friction>
-    <rolling_friction> 0.020 </rolling_friction>
+    <static_friction>  0.80 </static_friction>
+    <dynamic_friction> 0.50 </dynamic_friction>
+    <rolling_friction> 0.015 </rolling_friction>
     <spring_coeff  unit="N/M">      5000.00 </spring_coeff>
     <damping_coeff unit="N/M/SEC">   500.00 </damping_coeff>
     <max_steer unit="DEG">0</max_steer>
@@ -131,9 +131,9 @@
       <y>-0.051</y>
       <z> 0.575</z>
     </location>
-    <static_friction>  0.800 </static_friction>
-    <dynamic_friction> 0.500 </dynamic_friction>
-    <rolling_friction> 0.020 </rolling_friction>
+    <static_friction>  0.80 </static_friction>
+    <dynamic_friction> 0.50 </dynamic_friction>
+    <rolling_friction> 0.018 </rolling_friction>
     <spring_coeff  unit="N/M">      5000.00 </spring_coeff>
     <damping_coeff unit="N/M/SEC">   500.00 </damping_coeff>
     <max_steer unit="DEG">0</max_steer>
@@ -141,15 +141,15 @@
     <retractable>0</retractable>
   </contact>
 
-  <contact type="BOGEY" name="WINGLEFTGEAR">
+  <contact type="BOGEY" name="WING_LEFT_GEAR">
     <location unit="M">
       <x>-0.213</x>
       <y>-3.175</y>
       <z> 0.01 </z>
     </location>
-    <static_friction>  0.800 </static_friction>
-    <dynamic_friction> 0.500 </dynamic_friction>
-    <rolling_friction> 0.020 </rolling_friction>
+    <static_friction>  0.80 </static_friction>
+    <dynamic_friction> 0.50 </dynamic_friction>
+    <rolling_friction> 0.018 </rolling_friction>
     <spring_coeff  unit="N/M">      5000.00 </spring_coeff>
     <damping_coeff unit="N/M/SEC">   500.00 </damping_coeff>
     <max_steer unit="DEG">0</max_steer>
@@ -157,15 +157,15 @@
     <retractable>0</retractable>
   </contact>
 
-  <contact type="BOGEY" name="WINGRIGHTGEAR">
+  <contact type="BOGEY" name="WING_RIGHT_GEAR">
     <location unit="M">
       <x>-0.198</x>
       <y> 3.164</y>
       <z>-0.03 </z>
     </location>
-    <static_friction>  0.800 </static_friction>
-    <dynamic_friction> 0.500 </dynamic_friction>
-    <rolling_friction> 0.020 </rolling_friction>
+    <static_friction>  0.80 </static_friction>
+    <dynamic_friction> 0.50 </dynamic_friction>
+    <rolling_friction> 0.018 </rolling_friction>
     <spring_coeff  unit="N/M">      5000.00 </spring_coeff>
     <damping_coeff unit="N/M/SEC">   500.00 </damping_coeff>
     <max_steer unit="DEG">0</max_steer>
@@ -173,11 +173,35 @@
     <retractable>0</retractable>
   </contact>
 
+  <contact type="STRUCTURE" name="FRONT">
+    <location unit="M">
+     <x>-2.53</x>
+     <y> 0.00</y>
+     <z>-1.9 </z>
+   </location>
+   <static_friction>  0.20 </static_friction>
+   <dynamic_friction> 0.20 </dynamic_friction>
+   <spring_coeff  unit="N/M">      100.00 </spring_coeff>
+   <damping_coeff unit="N/M/SEC">  500.00 </damping_coeff>
+  </contact>
+
+  <contact type="STRUCTURE" name="FRONT_TOP">
+    <location unit="M">
+     <x>-2.1 </x>
+     <y> 0.00 </y>
+     <z> 4.445</z>
+   </location>
+   <static_friction>  0.20 </static_friction>
+   <dynamic_friction> 0.20 </dynamic_friction>
+   <spring_coeff  unit="N/M">      100.00 </spring_coeff>
+   <damping_coeff unit="N/M/SEC">  500.00 </damping_coeff>
+  </contact>
+
   <contact type="STRUCTURE" name="LEFT_WING">
     <location unit="M">
-     <x> -0.06 </x>
-     <y>-12.20 </y>
-     <z>  0.57 </z>
+     <x> -0.015</x>
+     <y>-12.679</y>
+     <z> -2.3  </z>
    </location>
    <static_friction>  0.20 </static_friction>
    <dynamic_friction> 0.20 </dynamic_friction>
@@ -187,21 +211,45 @@
 
   <contact type="STRUCTURE" name="RIGHT_WING">
     <location unit="M">
-     <x> -0.03 </x>
-     <y> 12.23 </y>
-     <z>  0.39 </z>
+     <x>-0.015</x>
+     <y>12.679</y>
+     <z> -2.3 </z>
    </location>
    <static_friction>  0.20 </static_friction>
    <dynamic_friction> 0.20 </dynamic_friction>
    <spring_coeff  unit="N/M">      100.00 </spring_coeff>
    <damping_coeff unit="N/M/SEC">  500.00 </damping_coeff>
   </contact>
+
+  <!--contact type="STRUCTURE" name="LEFT_WING_TOP">
+    <location unit="M">
+     <x> -0.015</x>
+     <y>-12.679</y>
+     <z>  3.7  </z>
+   </location>
+   <static_friction>  0.20 </static_friction>
+   <dynamic_friction> 0.20 </dynamic_friction>
+   <spring_coeff  unit="N/M">      100.00 </spring_coeff>
+   <damping_coeff unit="N/M/SEC">  500.00 </damping_coeff>
+  </contact>
+
+  <contact type="STRUCTURE" name="RIGHT_WING_TOP">
+    <location unit="M">
+     <x>-0.015</x>
+     <y>12.679</y>
+     <z> 3.7 </z>
+   </location>
+   <static_friction>  0.20 </static_friction>
+   <dynamic_friction> 0.20 </dynamic_friction>
+   <spring_coeff  unit="N/M">      100.00 </spring_coeff>
+   <damping_coeff unit="N/M/SEC">  500.00 </damping_coeff>
+  </contact-->
 
   <contact type="STRUCTURE" name="TAIL">
     <location unit="M">
-     <x> 5.97 </x>
-     <y>-0.00 </y>
-     <z> 0.01 </z>
+     <x> 6.28</x>
+     <y>-0.00</y>
+     <z>-1.9 </z>
    </location>
    <static_friction>  0.20 </static_friction>
    <dynamic_friction> 0.20 </dynamic_friction>
@@ -209,11 +257,11 @@
    <damping_coeff unit="N/M/SEC">  500.00 </damping_coeff>
   </contact>
 
-  <contact type="STRUCTURE" name="PROPHOUSING">
+  <contact type="STRUCTURE" name="PROP_HOUSING">
     <location unit="M">
-     <x> 5.86 </x>
-     <y>-0.01 </y>
-     <z> 0.02 </z>
+     <x>-0.254</x>
+     <y> 0.00 </y>
+     <z> 6.604</z>
    </location>
    <static_friction>  0.20 </static_friction>
    <dynamic_friction> 0.20 </dynamic_friction>
@@ -221,11 +269,11 @@
    <damping_coeff unit="N/M/SEC">  500.00 </damping_coeff>
   </contact>
 
-  <contact type="STRUCTURE" name="VERTSTAB">
+  <contact type="STRUCTURE" name="VERT_STAB">
     <location unit="M">
-     <x> 5.86 </x>
-     <y>-0.01 </y>
-     <z> 0.02 </z>
+     <x> 5.08 </x>
+     <y> 0.00 </y>
+     <z> 6.604</z>
    </location>
    <static_friction>  0.20 </static_friction>
    <dynamic_friction> 0.20 </dynamic_friction>
