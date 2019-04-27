@@ -75,6 +75,32 @@
             <path>Previews/sumpac8.jpg</path>
             <splash type="bool">true</splash>
         </preview>
+        <preview>
+            <type>exterior</type>
+            <path>Previews/sumpac9.jpg</path>
+            <splash type="bool">true</splash>
+        </preview>
+        <preview>
+            <type>exterior</type>
+            <path>Previews/sumpac10.jpg</path>
+            <splash type="bool">true</splash>
+        </preview>
+        <preview>
+            <type>exterior</type>
+            <path>Previews/sumpac11.jpg</path>
+            <splash type="bool">true</splash>
+        </preview>
+        <preview>
+            <type>exterior</type>
+            <path>Previews/sumpac12.jpg</path>
+            <splash type="bool">true</splash>
+        </preview>
+        <preview>
+            <type>exterior</type>
+            <path>Previews/sumpac13.jpg</path>
+            <splash type="bool">true</splash>
+        </preview>
+
     </previews>
     <startup>
         <splash-texture>Aircraft/SUMPAC/Previews/sumpac1.jpg</splash-texture>
