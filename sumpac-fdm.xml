@@ -173,7 +173,7 @@
     <retractable>0</retractable>
   </contact>
 
-  <contact type="STRUCTURE" name="FRONT">
+  <!--contact type="STRUCTURE" name="FRONT">
     <location unit="M">
      <x>-2.53</x>
      <y> 0.00</y>
@@ -195,7 +195,7 @@
    <dynamic_friction> 0.20 </dynamic_friction>
    <spring_coeff  unit="N/M">      100.00 </spring_coeff>
    <damping_coeff unit="N/M/SEC">  500.00 </damping_coeff>
-  </contact>
+  </contact-->
 
   <contact type="STRUCTURE" name="LEFT_WING">
     <location unit="M">
@@ -221,7 +221,7 @@
    <damping_coeff unit="N/M/SEC">  500.00 </damping_coeff>
   </contact>
 
-  <!--contact type="STRUCTURE" name="LEFT_WING_TOP">
+  <contact type="STRUCTURE" name="LEFT_WING_TOP">
     <location unit="M">
      <x> -0.015</x>
      <y>-12.679</y>
@@ -243,9 +243,9 @@
    <dynamic_friction> 0.20 </dynamic_friction>
    <spring_coeff  unit="N/M">      100.00 </spring_coeff>
    <damping_coeff unit="N/M/SEC">  500.00 </damping_coeff>
-  </contact-->
+  </contact>
 
-  <contact type="STRUCTURE" name="TAIL">
+  <!--contact type="STRUCTURE" name="TAIL">
     <location unit="M">
      <x> 6.28</x>
      <y>-0.00</y>
@@ -279,7 +279,7 @@
    <dynamic_friction> 0.20 </dynamic_friction>
    <spring_coeff  unit="N/M">      100.00 </spring_coeff>
    <damping_coeff unit="N/M/SEC">  500.00 </damping_coeff>
-  </contact>
+  </contact-->
 
  </ground_reactions>
 

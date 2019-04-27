@@ -172,6 +172,11 @@
         <object-name>windscreen-exterior</object-name>
         <object-name>wing-right-plastic</object-name>
         <object-name>fuselage-plastic</object-name>
+        <object-name>rudder-plastic</object-name>
+        <object-name>horizontal-stab-plastic</object-name>
+        <object-name>elevator-plastic</object-name>
+        <object-name>left-aileron-plastic</object-name>
+        <object-name>right-aileron-plastic</object-name>
     </effect>
     <effect>
         <inherits-from>Aircraft/SUMPAC/Models/Effects/sumpac-interior-glass-reflection</inherits-from>
@@ -193,7 +198,11 @@
         <type>select</type>
         <object-name>wing-right-plastic</object-name>
         <object-name>fuselage-plastic</object-name>
-        <object-name>propeller-housing-plastic</object-name>
+        <object-name>rudder-plastic</object-name>
+        <object-name>horizontal-stab-plastic</object-name>
+        <object-name>elevator-plastic</object-name>
+        <object-name>left-aileron-plastic</object-name>
+        <object-name>right-aileron-plastic</object-name>
         <condition>
             <property>sim/model/covering</property>
         </condition>
@@ -355,6 +364,7 @@
   	<type>rotate</type>
   	<object-name>rudder</object-name>
     <object-name>rudder-truss</object-name>
+    <object-name>rudder-plastic</object-name>
   	<property>/controls/flight/rudder</property>
     <min-deg>-30</min-deg>
     <max-deg>30</max-deg>
