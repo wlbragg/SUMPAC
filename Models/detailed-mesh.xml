@@ -1,0 +1,349 @@
+<?xml version="1.0"?>
+
+<!-- SUMPAC Human-Powered Airplane  -->
+<!-- Copyright 2014 Marshall Gusman -->
+
+<PropertyList>
+
+    <!-- AC file is courtesy of SunLightEagle model for CRRC sim -->
+    <path>Aircraft/SUMPAC/Models/sumpac-detailed.ac</path>
+    <offsets>
+        <x-m>0</x-m>
+        <y-m>0</y-m>
+        <z-m>0</z-m>
+        <scale>0</scale>
+        <pitch-deg>0.0</pitch-deg>
+    </offsets>
+
+    <!--  Specularity fix -->
+    <animation>
+        <type>material</type>
+        <object-name>rudder-cable</object-name>
+        <object-name>elevator-cable</object-name>
+        <object-name>interior-flight-control</object-name>
+        <object-name>pulleys</object-name>
+        <object-name>steering-column</object-name>
+        <object-name>propeller-wiring</object-name>
+        <object-name>wing-cable</object-name>
+        <!--object-name>left-aileron-spring</object-name-->
+        <object-name>left-aileron-cable-for</object-name>
+        <object-name>left-aileron-cable-aft</object-name>
+        <object-name>left-aileron-cable-tension-for</object-name>
+        <object-name>left-aileron-cable-tension-aft</object-name>
+        <object-name>wing-left-hardware</object-name>
+        <!--object-name>right-aileron-spring</object-name-->
+        <object-name>right-aileron-cable-for</object-name>
+        <object-name>right-aileron-cable-aft</object-name>
+        <object-name>right-aileron-cable-tension-for</object-name>
+        <object-name>right-aileron-cable-tension-aft</object-name>
+        <object-name>wing-right-hardware</object-name>
+        <object-name>wing-left-leading-edge-det</object-name>
+        <object-name>wing-right-leading-edge-det</object-name>
+        <object-name>left-aileron-control-rod</object-name>
+        <object-name>left-aileron-control-bracket</object-name>
+        <object-name>left-aileron-control-link</object-name>
+        <object-name>right-aileron-control-rod</object-name>
+        <object-name>right-aileron-control-bracket</object-name>
+        <object-name>right-aileron-control-link</object-name>
+        <shininess>128</shininess>
+        <specular>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+        </specular>
+        <ambient>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+        </ambient>
+    </animation>
+
+    <!-- exterior effects -->
+    <!-- inherits model-combined-deferred -->
+    <effect>
+        <inherits-from>Aircraft/SUMPAC/Models/Effects/sumpac-exterior</inherits-from>
+        <object-name>rudder-cable</object-name>
+        <object-name>elevator-cable</object-name>
+        <object-name>interior-flight-control</object-name>
+        <object-name>pulleys</object-name>
+        <object-name>steering-column</object-name>
+        <object-name>propeller-wiring</object-name>
+        <object-name>wing-cable</object-name>
+        <!--object-name>left-aileron-spring</object-name-->
+        <object-name>left-aileron-cable-for</object-name>
+        <object-name>left-aileron-cable-aft</object-name>
+        <object-name>left-aileron-cable-tension-for</object-name>
+        <object-name>left-aileron-cable-tension-aft</object-name>
+        <object-name>wing-left-hardware</object-name>
+        <!--object-name>right-aileron-spring</object-name-->
+        <object-name>right-aileron-cable-for</object-name>
+        <object-name>right-aileron-cable-aft</object-name>
+        <object-name>right-aileron-cable-tension-for</object-name>
+        <object-name>right-aileron-cable-tension-aft</object-name>
+        <object-name>wing-right-hardware</object-name>
+        <object-name>wing-left-leading-edge-det</object-name>
+        <object-name>wing-right-leading-edge-det</object-name>
+        <object-name>left-aileron-control-rod</object-name>
+        <object-name>left-aileron-control-bracket</object-name>
+        <object-name>left-aileron-control-link</object-name>
+        <object-name>right-aileron-control-rod</object-name>
+        <object-name>right-aileron-control-bracket</object-name>
+        <object-name>right-aileron-control-link</object-name>
+    </effect>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>left-aileron-control-link</object-name>
+        <property>/controls/flight/aileron</property>
+        <min-deg>-15</min-deg>
+        <max-deg>15</max-deg>
+        <factor>15</factor>
+        <axis>
+            <x1-m>  0.12739</x1-m>
+            <y1-m>-10.12375</y1-m>
+            <z1-m>  0.52364</z1-m>
+            <x2-m>  0.2297 </x2-m>
+            <y2-m> -6.92812</y2-m>
+            <z2-m>  0.37201</z2-m>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>left-aileron-cable-tension-for</object-name>
+        <object-name>left-aileron-cable-for</object-name>
+        <property>/controls/flight/aileron</property>
+        <factor>-0.035</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+    <animation>
+    	<type>rotate</type>
+      <object-name>left-aileron-cable-for</object-name>
+      <property>/controls/flight/aileron</property>
+      <condition>
+          <greater-than-equals>
+              <property>controls/flight/aileron</property>
+              <value>.010</value>
+          </greater-than-equals>
+      </condition>
+      <factor>.05</factor>
+      <axis>
+          <x1-m>-0.18142</x1-m>
+          <y1-m>-3.51859</y1-m>
+          <z1-m> 0.24348</z1-m>
+          <x2-m>-0.18144</x2-m>
+          <y2-m>-3.51871</y2-m>
+          <z2-m> 0.24148</z2-m>
+      </axis>
+    </animation>
+    <animation>
+      <type>rotate</type>
+      <object-name>left-aileron-cable-for</object-name>
+    	<property>/controls/flight/aileron</property>
+      <condition>
+          <less-than>
+              <property>controls/flight/aileron</property>
+              <value>.040</value>
+          </less-than>
+      </condition>
+      <factor>-.05</factor>
+      <axis>
+          <x1-m>-0.18142</x1-m>
+          <y1-m>-3.51859</y1-m>
+          <z1-m> 0.24348</z1-m>
+          <x2-m>-0.18144</x2-m>
+          <y2-m>-3.51871</y2-m>
+          <z2-m> 0.24148</z2-m>
+      </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>left-aileron-cable-tension-aft</object-name>
+        <object-name>left-aileron-cable-aft</object-name>
+        <property>/controls/flight/aileron</property>
+        <factor>0.035</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+    <animation>
+      <type>rotate</type>
+      <object-name>left-aileron-cable-aft</object-name>
+      <property>/controls/flight/aileron</property>
+      <condition>
+          <greater-than-equals>
+              <property>controls/flight/aileron</property>
+              <value>.007</value>
+          </greater-than-equals>
+      </condition>
+      <factor>.05</factor>
+      <axis>
+          <x1-m> 0.02313</x1-m>
+          <y1-m>-3.51921</y1-m>
+          <z1-m> 0.25564</z1-m>
+          <x2-m> 0.02318</x2-m>
+          <y2-m>-3.51935</y2-m>
+          <z2-m> 0.25364</z2-m>
+      </axis>
+    </animation>
+    <animation>
+      <type>rotate</type>
+      <object-name>left-aileron-cable-aft</object-name>
+      <property>/controls/flight/aileron</property>
+      <condition>
+          <less-than>
+              <property>controls/flight/aileron</property>
+              <value>.007</value>
+          </less-than>
+      </condition>
+      <factor>-.05</factor>
+      <axis>
+          <x1-m> 0.02313</x1-m>
+          <y1-m>-3.51921</y1-m>
+          <z1-m> 0.25564</z1-m>
+          <x2-m> 0.02318</x2-m>
+          <y2-m>-3.51935</y2-m>
+          <z2-m> 0.25364</z2-m>
+      </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>left-aileron-control-rod</object-name>
+        <property>/controls/flight/aileron</property>
+        <factor>0.03</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+    <!--animation>
+        <type>translate</type>
+        <object-name>left-aileron-control-rod</object-name>
+        <property>/controls/flight/aileron</property>
+        <factor>0.0023</factor>
+        <axis>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>1.0</z>
+        </axis>
+    </animation-->
+    <animation>
+      <type>rotate</type>
+      <object-name>left-aileron-control-rod</object-name>
+      <property>/controls/flight/aileron</property>
+      <condition>
+          <greater-than-equals>
+              <property>controls/flight/aileron</property>
+              <value>0</value>
+          </greater-than-equals>
+      </condition>
+      <factor>.9</factor>
+      <axis>
+          <x1-m> 0.1637</x1-m>
+          <y1-m>-8.49862</y1-m>
+          <z1-m> 0.55548</z1-m>
+          <x2-m> 0.17517</x2-m>
+          <y2-m>-8.50145</y2-m>
+          <z2-m> 0.52493</z2-m>
+      </axis>
+    </animation>
+    <animation>
+      <type>rotate</type>
+      <object-name>left-aileron-control-rod</object-name>
+      <property>/controls/flight/aileron</property>
+      <condition>
+          <less-than>
+              <property>controls/flight/aileron</property>
+              <value>0</value>
+          </less-than>
+      </condition>
+      <factor>-.9</factor>
+      <axis>
+          <x1-m> 0.1637</x1-m>
+          <y1-m>-8.49862</y1-m>
+          <z1-m> 0.55548</z1-m>
+          <x2-m> 0.17517</x2-m>
+          <y2-m>-8.50145</y2-m>
+          <z2-m> 0.52493</z2-m>
+      </axis>
+    </animation>
+
+      <!--animation>
+      <type>rotate</type>
+      <object-name>left-aileron-control-rod</object-name>
+      <property>/controls/flight/aileron</property>
+      <condition>
+          <less-than>
+              <property>controls/flight/aileron</property>
+              <value>0</value>
+          </less-than>
+      </condition>
+      <factor>-.9</factor>
+      <axis>
+          <x1-m> 0.1637</x1-m>
+          <y1-m>-8.49862</y1-m>
+          <z1-m> 0.55548</z1-m>
+          <x2-m> 0.17517</x2-m>
+          <y2-m>-8.50145</y2-m>
+          <z2-m> 0.52493</z2-m>
+      </axis>
+    </animation-->
+
+    <!--animation>
+      <type>rotate</type>
+      <object-name>left-aileron-control-link</object-name>
+      <property>/controls/flight/aileron</property>
+      <factor>-1</factor>
+      <axis>
+          <x1-m>-0.08235</x1-m>
+          <y1-m>-8.49284</y1-m>
+          <z1-m> 0.48003</z1-m>
+          <x2-m>-0.08158</x2-m>
+          <y2-m>-8.50624</y2-m>
+          <z2-m> 0.48132</z2-m>
+      </axis>
+    </animation-->
+
+    <animation>
+      <type>rotate</type>
+      <object-name>left-aileron-control-bracket</object-name>
+      <property>/controls/flight/aileron</property>
+      <factor>-20</factor>
+      <axis>
+          <x1-m>-0.08137</x1-m>
+          <y1-m>-8.3766</y1-m>
+          <z1-m> 0.46949</z1-m>
+          <x2-m>-0.0809</x2-m>
+          <y2-m>-8.37688</y2-m>
+          <z2-m> 0.4616</z2-m>
+      </axis>
+    </animation>
+
+
+    <animation>
+    	<type>rotate</type>
+      <object-name>right-aileron-control-link</object-name>
+    	<property>/controls/flight/aileron</property>
+    	<min-deg>-20</min-deg>
+    	<max-deg>20</max-deg>
+    	<factor>-20</factor>
+    	<axis>
+          <x1-m>  0.25726</x1-m>
+          <y1-m>  6.93054</y1-m>
+          <z1-m>  0.26515</z1-m>
+          <x2-m>  0.17548</x2-m>
+          <y2-m> 10.12862</y2-m>
+          <z2-m>  0.36557</z2-m>
+      </axis>
+    </animation>
+
+ </PropertyList>

@@ -25,22 +25,6 @@
             </item-->
 
             <item>
-                <label>Mylar Covering</label>
-                <binding>
-                    <command>property-toggle</command>
-                    <property>/sim/model/covering</property>
-                </binding>
-            </item>
-
-            <item>
-                <label>Power Output On/Off</label>
-                <binding>
-                    <command>property-toggle</command>
-                    <property>/sim/gui/show-power-output</property>
-                </binding>
-            </item>
-
-            <item>
                 <label>Human Power Curves</label>
                 <binding>
                     <command>dialog-show</command>

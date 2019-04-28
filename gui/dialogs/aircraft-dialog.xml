@@ -51,6 +51,48 @@
 
             <checkbox>
                 <halign>left</halign>
+                <label>Two axis control</label>
+                <property>/controls/flight/two-axis-control</property>
+                <live>true</live>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>/controls/flight/two-axis-control</property>
+                </binding>
+            </checkbox>
+
+            <checkbox>
+                <halign>left</halign>
+                <label>High detail</label>
+                <property>/sim/rendering/high-detail</property>
+                <live>true</live>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>/sim/rendering/high-detail</property>
+                </binding>
+            </checkbox>
+
+            <checkbox>
+                <halign>left</halign>
+                <label>Mylar Covering</label>
+                <property>/sim/model/covering</property>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>/sim/model/covering</property>
+                </binding>
+            </checkbox>
+
+            <checkbox>
+                <halign>left</halign>
+                <label>Power Output On/Off</label>
+                <property>/sim/gui/show-power-output</property>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>/sim/gui/show-power-output</property>
+                </binding>
+            </checkbox>
+
+            <!--checkbox>
+                <halign>left</halign>
                 <label>Show shadow</label>
                 <property>/sim/rendering/shadow-volume</property>
                 <live>true</live>
@@ -60,7 +102,7 @@
                 </binding>
             </checkbox>
 
-            <!--checkbox>
+            <checkbox>
                 <halign>left</halign>
                 <label>Human models</label>
                 <property>/sim/model/occupants</property>

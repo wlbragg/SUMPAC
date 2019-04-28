@@ -31,7 +31,6 @@
     <animation>
         <type>material</type>
         <object-name>rudder</object-name>
-        <object-name>rudder-cable</object-name>
         <object-name>rudder-truss</object-name>
         <object-name>horizontal-stab</object-name>
         <object-name>horizontal-stab-leading-edge</object-name>
@@ -40,54 +39,30 @@
         <object-name>horizontal-stab-truss</object-name>
         <object-name>elevator</object-name>
         <object-name>elevator-truss</object-name>
-        <object-name>elevator-cable</object-name>
         <object-name>vertical-stab</object-name>
         <object-name>vertical-stab-truss</object-name>
-        <object-name>interior-flight-control</object-name>
         <object-name>fuselage-truss</object-name>
         <object-name>fuselage</object-name>
         <object-name>front-wheel</object-name>
         <object-name>back-wheel</object-name>
         <object-name>tail-wheel</object-name>
-        <object-name>pulleys</object-name>
         <object-name>hardware</object-name>
-        <object-name>steering-column</object-name>
         <object-name>framing</object-name>
         <object-name>propeller-housing</object-name>
-        <object-name>propeller-wiring</object-name>
         <object-name>propeller</object-name>
         <object-name>propeller-hub</object-name>
-        <object-name>wing-cable</object-name>
-        <!--object-name>left-aileron-spring</object-name-->
-        <object-name>left-aileron-control-rod</object-name>
-        <object-name>left-aileron-control-bracket</object-name>
-        <object-name>left-aileron-cable-for</object-name>
-        <object-name>left-aileron-cable-aft</object-name>
-        <object-name>left-aileron-cable-tension-for</object-name>
-        <object-name>left-aileron-cable-tension-aft</object-name>
-        <object-name>left-aileron-control-link</object-name>
         <object-name>left-aileron</object-name>
         <object-name>wing-left-leading-edge</object-name>
         <object-name>wing-left-leading-edge-faces</object-name>
         <object-name>wing-left-truss</object-name>
         <object-name>wing-left-wheel</object-name>
         <object-name>wing-left</object-name>
-        <object-name>wing-left-hardware</object-name>
-        <!--object-name>right-aileron-spring</object-name-->
-        <object-name>right-aileron-control-rod</object-name>
-        <object-name>right-aileron-control-bracket</object-name>
-        <object-name>right-aileron-cable-for</object-name>
-        <object-name>right-aileron-cable-aft</object-name>
-        <object-name>right-aileron-cable-tension-for</object-name>
-        <object-name>right-aileron-cable-tension-aft</object-name>
-        <object-name>right-aileron-control-link</object-name>
         <object-name>right-aileron</object-name>
         <object-name>wing-right-leading-edge</object-name>
         <object-name>wing-right-leading-edge-faces</object-name>
         <object-name>wing-right-truss</object-name>
         <object-name>wing-right-wheel</object-name>
         <object-name>wing-right</object-name>
-        <object-name>wing-right-hardware</object-name>
         <object-name>interior</object-name>
         <shininess>128</shininess>
         <specular>
@@ -107,7 +82,6 @@
     <effect>
         <inherits-from>Aircraft/SUMPAC/Models/Effects/sumpac-exterior</inherits-from>
         <object-name>rudder</object-name>
-        <object-name>rudder-cable</object-name>
         <object-name>rudder-truss</object-name>
         <object-name>horizontal-stab</object-name>
         <object-name>horizontal-stab-leading-edge</object-name>
@@ -116,60 +90,37 @@
         <object-name>horizontal-stab-truss</object-name>
         <object-name>elevator</object-name>
         <object-name>elevator-truss</object-name>
-        <object-name>elevator-cable</object-name>
         <object-name>vertical-stab</object-name>
         <object-name>vertical-stab-truss</object-name>
-        <object-name>interior-flight-control</object-name>
         <object-name>fuselage-truss</object-name>
         <object-name>fuselage</object-name>
         <object-name>front-wheel</object-name>
         <object-name>back-wheel</object-name>
         <object-name>tail-wheel</object-name>
-        <object-name>pulleys</object-name>
         <object-name>hardware</object-name>
-        <object-name>steering-column</object-name>
         <object-name>framing</object-name>
         <object-name>propeller-housing</object-name>
-        <object-name>propeller-wiring</object-name>
         <object-name>propeller</object-name>
         <object-name>propeller-hub</object-name>
-        <object-name>wing-cable</object-name>
-        <!--object-name>left-aileron-spring</object-name-->
-        <object-name>left-aileron-control-rod</object-name>
-        <object-name>left-aileron-control-bracket</object-name>
-        <object-name>left-aileron-cable-for</object-name>
-        <object-name>left-aileron-cable-aft</object-name>
-        <object-name>left-aileron-cable-tension-for</object-name>
-        <object-name>left-aileron-cable-tension-aft</object-name>
-        <object-name>left-aileron-control-link</object-name>
         <object-name>left-aileron</object-name>
         <object-name>wing-left-leading-edge</object-name>
         <object-name>wing-left-leading-edge-faces</object-name>
         <object-name>wing-left-truss</object-name>
         <object-name>wing-left-wheel</object-name>
         <object-name>wing-left</object-name>
-        <object-name>wing-left-hardware</object-name>
-        <!--object-name>right-aileron-spring</object-name-->
-        <object-name>right-aileron-control-rod</object-name>
-        <object-name>right-aileron-control-bracket</object-name>
-        <object-name>right-aileron-cable-for</object-name>
-        <object-name>right-aileron-cable-aft</object-name>
-        <object-name>right-aileron-cable-tension-for</object-name>
-        <object-name>right-aileron-cable-tension-aft</object-name>
-        <object-name>right-aileron-control-link</object-name>
         <object-name>right-aileron</object-name>
         <object-name>wing-right-leading-edge</object-name>
         <object-name>wing-right-leading-edge-faces</object-name>
         <object-name>wing-right-truss</object-name>
         <object-name>wing-right-wheel</object-name>
         <object-name>wing-right</object-name>
-        <object-name>wing-right-hardware</object-name>
         <object-name>interior</object-name>
     </effect>
 
     <effect>
         <inherits-from>Aircraft/SUMPAC/Models/Effects/sumpac-exterior-glass-reflection</inherits-from>
         <object-name>windscreen-exterior</object-name>
+        <object-name>wing-left-plastic</object-name>
         <object-name>wing-right-plastic</object-name>
         <object-name>fuselage-plastic</object-name>
         <object-name>rudder-plastic</object-name>
@@ -194,8 +145,36 @@
         <object-name>cockpit-interior</object-name>
     </effect>
 
+    <model>
+        <path>detailed-mesh.xml</path>
+        <offsets>
+            <x-m> 0 </x-m>
+            <y-m> 0 </y-m>
+            <z-m> 0 </z-m>
+        </offsets>
+        <condition>
+            <equals>
+                <property>/sim/rendering/high-detail</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </model>
+
     <animation>
         <type>select</type>
+        <object-name>wing-left-leading-edge</object-name>
+        <object-name>wing-right-leading-edge</object-name>
+        <condition>
+            <equals>
+                <property>/sim/rendering/high-detail</property>
+                <value>0</value>
+            </equals>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>wing-left-plastic</object-name>
         <object-name>wing-right-plastic</object-name>
         <object-name>fuselage-plastic</object-name>
         <object-name>rudder-plastic</object-name>
@@ -365,7 +344,7 @@
   	<object-name>rudder</object-name>
     <object-name>rudder-truss</object-name>
     <object-name>rudder-plastic</object-name>
-  	<property>/controls/flight/rudder</property>
+  	<property>/controls/flight/control-axis-type</property>
     <min-deg>-30</min-deg>
     <max-deg>30</max-deg>
     <factor>-30</factor>
@@ -382,7 +361,6 @@
   <animation>
     <type>rotate</type>
     <object-name>left-aileron</object-name>
-    <object-name>left-aileron-control-link</object-name>
     <property>/controls/flight/aileron</property>
     <min-deg>-15</min-deg>
     <max-deg>15</max-deg>
@@ -398,230 +376,8 @@
   </animation>
 
   <animation>
-      <type>translate</type>
-      <object-name>left-aileron-cable-tension-for</object-name>
-      <object-name>left-aileron-cable-for</object-name>
-      <property>/controls/flight/aileron</property>
-      <factor>-0.035</factor>
-      <axis>
-          <x>0.0</x>
-          <y>1.0</y>
-          <z>0.0</z>
-      </axis>
-  </animation>
-  <animation>
-  	<type>rotate</type>
-    <object-name>left-aileron-cable-for</object-name>
-    <property>/controls/flight/aileron</property>
-    <condition>
-        <greater-than-equals>
-            <property>controls/flight/aileron</property>
-            <value>.010</value>
-        </greater-than-equals>
-    </condition>
-    <factor>.05</factor>
-    <axis>
-        <x1-m>-0.18142</x1-m>
-        <y1-m>-3.51859</y1-m>
-        <z1-m> 0.24348</z1-m>
-        <x2-m>-0.18144</x2-m>
-        <y2-m>-3.51871</y2-m>
-        <z2-m> 0.24148</z2-m>
-    </axis>
-  </animation>
-  <animation>
-    <type>rotate</type>
-    <object-name>left-aileron-cable-for</object-name>
-  	<property>/controls/flight/aileron</property>
-    <condition>
-        <less-than>
-            <property>controls/flight/aileron</property>
-            <value>.040</value>
-        </less-than>
-    </condition>
-    <factor>-.05</factor>
-    <axis>
-        <x1-m>-0.18142</x1-m>
-        <y1-m>-3.51859</y1-m>
-        <z1-m> 0.24348</z1-m>
-        <x2-m>-0.18144</x2-m>
-        <y2-m>-3.51871</y2-m>
-        <z2-m> 0.24148</z2-m>
-    </axis>
-  </animation>
-
-  <animation>
-      <type>translate</type>
-      <object-name>left-aileron-cable-tension-aft</object-name>
-      <object-name>left-aileron-cable-aft</object-name>
-      <property>/controls/flight/aileron</property>
-      <factor>0.035</factor>
-      <axis>
-          <x>0.0</x>
-          <y>1.0</y>
-          <z>0.0</z>
-      </axis>
-  </animation>
-  <animation>
-    <type>rotate</type>
-    <object-name>left-aileron-cable-aft</object-name>
-    <property>/controls/flight/aileron</property>
-    <condition>
-        <greater-than-equals>
-            <property>controls/flight/aileron</property>
-            <value>.007</value>
-        </greater-than-equals>
-    </condition>
-    <factor>.05</factor>
-    <axis>
-        <x1-m> 0.02313</x1-m>
-        <y1-m>-3.51921</y1-m>
-        <z1-m> 0.25564</z1-m>
-        <x2-m> 0.02318</x2-m>
-        <y2-m>-3.51935</y2-m>
-        <z2-m> 0.25364</z2-m>
-    </axis>
-  </animation>
-  <animation>
-    <type>rotate</type>
-    <object-name>left-aileron-cable-aft</object-name>
-    <property>/controls/flight/aileron</property>
-    <condition>
-        <less-than>
-            <property>controls/flight/aileron</property>
-            <value>.007</value>
-        </less-than>
-    </condition>
-    <factor>-.05</factor>
-    <axis>
-        <x1-m> 0.02313</x1-m>
-        <y1-m>-3.51921</y1-m>
-        <z1-m> 0.25564</z1-m>
-        <x2-m> 0.02318</x2-m>
-        <y2-m>-3.51935</y2-m>
-        <z2-m> 0.25364</z2-m>
-    </axis>
-  </animation>
-
-  <animation>
-      <type>translate</type>
-      <object-name>left-aileron-control-rod</object-name>
-      <property>/controls/flight/aileron</property>
-      <factor>0.03</factor>
-      <axis>
-          <x>1.0</x>
-          <y>0.0</y>
-          <z>0.0</z>
-      </axis>
-  </animation>
-  <!--animation>
-      <type>translate</type>
-      <object-name>left-aileron-control-rod</object-name>
-      <property>/controls/flight/aileron</property>
-      <factor>0.0023</factor>
-      <axis>
-          <x>0.0</x>
-          <y>0.0</y>
-          <z>1.0</z>
-      </axis>
-  </animation-->
-  <animation>
-    <type>rotate</type>
-    <object-name>left-aileron-control-rod</object-name>
-    <property>/controls/flight/aileron</property>
-    <condition>
-        <greater-than-equals>
-            <property>controls/flight/aileron</property>
-            <value>0</value>
-        </greater-than-equals>
-    </condition>
-    <factor>.9</factor>
-    <axis>
-        <x1-m> 0.1637</x1-m>
-        <y1-m>-8.49862</y1-m>
-        <z1-m> 0.55548</z1-m>
-        <x2-m> 0.17517</x2-m>
-        <y2-m>-8.50145</y2-m>
-        <z2-m> 0.52493</z2-m>
-    </axis>
-  </animation>
-  <animation>
-    <type>rotate</type>
-    <object-name>left-aileron-control-rod</object-name>
-    <property>/controls/flight/aileron</property>
-    <condition>
-        <less-than>
-            <property>controls/flight/aileron</property>
-            <value>0</value>
-        </less-than>
-    </condition>
-    <factor>-.9</factor>
-    <axis>
-        <x1-m> 0.1637</x1-m>
-        <y1-m>-8.49862</y1-m>
-        <z1-m> 0.55548</z1-m>
-        <x2-m> 0.17517</x2-m>
-        <y2-m>-8.50145</y2-m>
-        <z2-m> 0.52493</z2-m>
-    </axis>
-  </animation>
-
-    <!--animation>
-    <type>rotate</type>
-    <object-name>left-aileron-control-rod</object-name>
-    <property>/controls/flight/aileron</property>
-    <condition>
-        <less-than>
-            <property>controls/flight/aileron</property>
-            <value>0</value>
-        </less-than>
-    </condition>
-    <factor>-.9</factor>
-    <axis>
-        <x1-m> 0.1637</x1-m>
-        <y1-m>-8.49862</y1-m>
-        <z1-m> 0.55548</z1-m>
-        <x2-m> 0.17517</x2-m>
-        <y2-m>-8.50145</y2-m>
-        <z2-m> 0.52493</z2-m>
-    </axis>
-  </animation-->
-
-  <!--animation>
-    <type>rotate</type>
-    <object-name>left-aileron-control-link</object-name>
-    <property>/controls/flight/aileron</property>
-    <factor>-1</factor>
-    <axis>
-        <x1-m>-0.08235</x1-m>
-        <y1-m>-8.49284</y1-m>
-        <z1-m> 0.48003</z1-m>
-        <x2-m>-0.08158</x2-m>
-        <y2-m>-8.50624</y2-m>
-        <z2-m> 0.48132</z2-m>
-    </axis>
-  </animation-->
-
-  <animation>
-    <type>rotate</type>
-    <object-name>left-aileron-control-bracket</object-name>
-    <property>/controls/flight/aileron</property>
-    <factor>-20</factor>
-    <axis>
-        <x1-m>-0.08137</x1-m>
-        <y1-m>-8.3766</y1-m>
-        <z1-m> 0.46949</z1-m>
-        <x2-m>-0.0809</x2-m>
-        <y2-m>-8.37688</y2-m>
-        <z2-m> 0.4616</z2-m>
-    </axis>
-  </animation>
-
-
-  <animation>
   	<type>rotate</type>
   	<object-name>right-aileron</object-name>
-    <object-name>right-aileron-control-link</object-name>
   	<property>/controls/flight/aileron</property>
   	<min-deg>-20</min-deg>
   	<max-deg>20</max-deg>

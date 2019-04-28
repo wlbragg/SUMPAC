@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- (c) 2019, wlbragg. used for one or two axis control -->
+
+<PropertyList>
+
+    <filter>
+        <name>One or two axis control</name>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>/controls/flight/two-axis-control</property>
+            </condition>
+            <property>/controls/flight/aileron</property>
+        </input>
+        <input>
+            <condition>
+                <not>
+                    <property>/controls/flight/two-axis-control</property>
+                </not>
+            </condition>
+            <property>/controls/flight/rudder</property>
+        </input>
+        <output>
+            <property>/controls/flight/control-axis-type</property>
+        </output>
+    </filter>
+
+</PropertyList>
