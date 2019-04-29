@@ -321,8 +321,9 @@
 
   <animation>
       <type>rotate</type>
-      <object-name>elevator-truss</object-name>
       <object-name>elevator</object-name>
+      <object-name>elevator-plastic</object-name>
+      <object-name>elevator-truss</object-name>
       <property>/controls/flight/elevator</property>
       <min-deg>-10</min-deg>
       <max-deg>10</max-deg>
@@ -361,6 +362,7 @@
   <animation>
     <type>rotate</type>
     <object-name>left-aileron</object-name>
+    <object-name>left-aileron-plastic</object-name>
     <property>/controls/flight/aileron</property>
     <min-deg>-15</min-deg>
     <max-deg>15</max-deg>
@@ -378,6 +380,7 @@
   <animation>
   	<type>rotate</type>
   	<object-name>right-aileron</object-name>
+    <object-name>right-aileron-plastic</object-name>
   	<property>/controls/flight/aileron</property>
   	<min-deg>-20</min-deg>
   	<max-deg>20</max-deg>
