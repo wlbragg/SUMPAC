@@ -46,8 +46,6 @@
         <object-name>front-wheel</object-name>
         <object-name>back-wheel</object-name>
         <object-name>tail-wheel</object-name>
-        <object-name>hardware</object-name>
-        <object-name>framing</object-name>
         <object-name>propeller-housing</object-name>
         <object-name>propeller</object-name>
         <object-name>propeller-hub</object-name>
@@ -97,8 +95,6 @@
         <object-name>front-wheel</object-name>
         <object-name>back-wheel</object-name>
         <object-name>tail-wheel</object-name>
-        <object-name>hardware</object-name>
-        <object-name>framing</object-name>
         <object-name>propeller-housing</object-name>
         <object-name>propeller</object-name>
         <object-name>propeller-hub</object-name>
@@ -187,24 +183,24 @@
         </condition>
     </animation>
 
-    <!--animation>
+    <animation>
         <type>select</type>
         <object-name>propeller-fast</object-name>
         <condition>
             <greater-than>
-                <property>engines/engine/rpm</property>
-                <value>225</value>
+                <property>fdm/jsbsim/human-output/electric-motor</property>
+                <value>380</value>
             </greater-than>
         </condition>
-    </animation-->
+    </animation>
 
-    <!--animation>
+    <animation>
         <type>select</type>
         <object-name>propeller</object-name>
         <condition>
             <less-than>
-                <property>engines/engine/rpm</property>
-                <value>250</value>
+                <property>fdm/jsbsim/human-output/electric-motor</property>
+                <value>1025</value>
             </less-than>
         </condition>
     </animation>
@@ -212,17 +208,17 @@
     <animation>
         <type>blend</type>
         <object-name>propeller-fast</object-name>
-        <property>engines/engine/rpm</property>
+        <property>fdm/jsbsim/human-output/electric-motor</property>
         <factor>0.0004</factor>
         <max>1.0</max>
         <min>0.0</min>
-    </animation-->
+    </animation>
 
   <animation>
   	<object-name>propeller</object-name>
     <object-name>propeller-hub</object-name>
   	<type>spin</type>
-    <property>engines/engine/rpm</property>
+    <property>fdm/jsbsim/human-output/electric-motor</property>
     <factor>1</factor>
     <axis>
         <x1-m> 1.45136</x1-m>

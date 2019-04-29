@@ -24,6 +24,8 @@
         <object-name>pulleys</object-name>
         <object-name>steering-column</object-name>
         <object-name>propeller-wiring</object-name>
+        <object-name>hardware</object-name>
+        <object-name>framing</object-name>
         <object-name>wing-cable</object-name>
         <!--object-name>left-aileron-spring</object-name-->
         <object-name>left-aileron-cable-for</object-name>
@@ -68,6 +70,8 @@
         <object-name>pulleys</object-name>
         <object-name>steering-column</object-name>
         <object-name>propeller-wiring</object-name>
+        <object-name>hardware</object-name>
+        <object-name>framing</object-name>
         <object-name>wing-cable</object-name>
         <!--object-name>left-aileron-spring</object-name-->
         <object-name>left-aileron-cable-for</object-name>
