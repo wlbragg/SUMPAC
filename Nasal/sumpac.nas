@@ -118,6 +118,10 @@ var nasalInit = setlistener("/sim/signals/fdm-initialized", func{
         }
     }, 0, 0);
 
+    setlistener("/sim/rendering/reset", func (node) {
+        sumpac.reset_sumpac();
+    }, 0, 0);
+
     var sumpac_timer = maketimer(0.25, func{global_system_loop()});
     sumpac_timer.start();
 });

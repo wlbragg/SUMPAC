@@ -33,6 +33,14 @@
             </item>
 
             <item>
+                <label>Reset aircraft</label>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>/sim/rendering/reset</property>
+                </binding>
+            </item>
+
+            <item>
                 <label>Flashlight</label>
                 <binding>
                     <command>nasal</command>

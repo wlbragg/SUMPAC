@@ -133,6 +133,7 @@ More info here: http://wiki.flightgear.org/XML#3._Data
         <property-rule n="102">
             <path>Aircraft/SUMPAC/Systems/sim-control.xml</path>
         </property-rule>
+
         <!--property-rule n="103">
             <path>Aircraft/SUMPAC/Systems/wingflex.xml</path>
         </property-rule-->
@@ -169,7 +170,9 @@ More info here: http://wiki.flightgear.org/XML#3._Data
     <rendering>
         <!-- Enable the ALS shadow volume by default -->
         <!--shadow-volume type="bool">true</shadow-volume-->
+
         <high-detail type="bool">false</high-detail>
+        <reset type="bool">false</reset>
     </rendering>
 
     <gui>
@@ -201,6 +204,7 @@ More info here: http://wiki.flightgear.org/XML#3._Data
         <sumpac>
             <file>Nasal/sumpac.nas</file>
             <file>Nasal/flashlight.nas</file>
+            <file>Nasal/reset.nas</file>
         </sumpac>
     </nasal>
 

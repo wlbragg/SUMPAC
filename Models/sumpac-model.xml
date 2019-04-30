@@ -5,7 +5,7 @@
 
 <PropertyList>
 
-    <!-- AC file is courtesy of SunLightEagle model for CRRC sim -->
+    <!-- AC file is courtesy of Industrial Art Studios, www.ind-art.co.uk -->
     <path>Aircraft/SUMPAC/Models/sumpac.ac</path>
     <offsets>
         <x-m>0</x-m>
@@ -209,7 +209,7 @@
         <type>blend</type>
         <object-name>propeller-fast</object-name>
         <property>fdm/jsbsim/human-output/electric-motor</property>
-        <factor>0.0004</factor>
+        <factor>0.0002</factor>
         <max>1.0</max>
         <min>0.0</min>
     </animation>
