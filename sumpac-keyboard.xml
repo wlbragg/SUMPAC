@@ -17,6 +17,16 @@
 
 <PropertyList>
 
+ <key n="114">
+  <name>r</name>
+  <desc>Reset position</desc>
+  <repeatable type="bool">true</repeatable>
+  <binding>
+      <command>property-toggle</command>
+      <property>/sim/rendering/reset</property>
+  </binding>
+ </key>
+
  <key n="51">
   <name>3</name>
   <desc>Decrease throttle or autopilot autothrottle</desc>
