@@ -92,6 +92,60 @@ var weather_effects_loop = func {
 }
 
 ############################################
+# Static objects: Kremer Prize Course
+############################################
+
+var StaticModel = {
+    new: func (name, lat, lon, elev, file) {
+        var m = {
+            parents: [StaticModel],
+            model: nil,
+            model_file: file,
+            model_lat: lat,
+            model_lon: lon,
+            model_elev: elev,
+	          object_name: name
+        };
+
+        setlistener("/sim/" ~ name ~ "/enable", func (node) {
+            if (node.getBoolValue()) {
+                m.add();
+            }
+            else {
+                m.remove();
+            }
+        });
+
+        return m;
+    },
+
+    add: func {
+        var manager = props.globals.getNode("/models", 1);
+        var i = 0;
+        for (; 1; i += 1) {
+            if (manager.getChild("model", i, 0) == nil) {
+                break;
+            }
+        }
+        var position = geo.aircraft_position().set_alt(me.model_elev);
+        me.model = geo.put_model(me.model_file, position, getprop("/orientation/heading-deg"));
+    },
+
+    remove: func {
+        if (me.model != nil) {
+            me.model.remove();
+            me.model = nil;
+        }
+    }
+};
+
+# course
+StaticModel.new("flyerflagone",  51.18758886, -1.042835419, 174.7775625, "Aircraft/SUMPAC/Models/flyer-mesh-one.xml");
+StaticModel.new("flyerflagtwo",  51.1881468,  -1.31368661,  182.4025536, "Aircraft/SUMPAC/Models/flyer-mesh-two.xml");
+StaticModel.new("heightpoleone", 51.18720607, -1.036980553, 178.9781558, "Aircraft/SUMPAC/Models/height-pole-one.xml");
+StaticModel.new("heightpoletwo", 51.18855094, -1.03721551,  178.4192629, "Aircraft/SUMPAC/Models/height-pole-two.xml");
+
+############################################
 # Global loop function
 # If you need to run nasal as loop, add it in this function
 ############################################
@@ -104,6 +158,31 @@ var global_system_loop = func{
 var nasalInit = setlistener("/sim/signals/fdm-initialized", func{
     #aircraft.data.add("fdm/jsbsim/pedal-power");
     #aircraft.data.load();
+
+    if (getprop("/sim/rendering/course")) {
+        setprop("/sim/flyerflagone/enable", 1);
+        setprop("/sim/flyerflagtwo/enable", 1);
+        setprop("/sim/heightpoleone/enable", 1);
+        setprop("/sim/heightpoletwo/enable", 1);
+    } else {
+        setprop("/sim/flyerflagone/enable", 0);
+        setprop("/sim/flyerflagtwo/enable", 0);
+        setprop("/sim/heightpoleone/enable", 0);
+        setprop("/sim/heightpoletwo/enable", 0);
+    }
+    setlistener("/sim/rendering/course", func (node) {
+        if (node.getBoolValue()) {
+            setprop("/sim/flyerflagone/enable", 1);
+            setprop("/sim/flyerflagtwo/enable", 1);
+            setprop("/sim/heightpoleone/enable", 1);
+            setprop("/sim/heightpoletwo/enable", 1);
+        } else {
+            setprop("/sim/flyerflagone/enable", 0);
+            setprop("/sim/flyerflagtwo/enable", 0);
+            setprop("/sim/heightpoleone/enable", 0);
+            setprop("/sim/heightpoletwo/enable", 0);
+        }
+    }, 0, 0);
 
     if (getprop("/sim/gui/show-power-output")) {
         fgcommand("dialog-show", props.Node.new({"dialog-name": "power-output-dialog"}));

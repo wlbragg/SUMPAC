@@ -150,6 +150,7 @@ More info here: http://wiki.flightgear.org/XML#3._Data
         <path>/sim/rendering/high-detail</path>
         <path>/controls/flight/two-axis-control</path>
         <path>/sim/model/covering</path>
+        <path>/sim/rendering/course</path>
     </aircraft-data>
 
     <multiplay>
@@ -173,6 +174,7 @@ More info here: http://wiki.flightgear.org/XML#3._Data
 
         <high-detail type="bool">false</high-detail>
         <reset type="bool">false</reset>
+        <course type="bool">false</course>
     </rendering>
 
     <gui>

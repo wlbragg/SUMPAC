@@ -91,6 +91,16 @@
                 </binding>
             </checkbox>
 
+            <checkbox>
+                <halign>left</halign>
+                <label>Kremer Prize Course</label>
+                <property>/sim/rendering/course</property>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>/sim/rendering/course</property>
+                </binding>
+            </checkbox>
+
             <!--checkbox>
                 <halign>left</halign>
                 <label>Show shadow</label>
