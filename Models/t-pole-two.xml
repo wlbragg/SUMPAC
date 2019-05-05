@@ -5,10 +5,10 @@
 
 <PropertyList>
 
-    <path>Aircraft/SUMPAC/Models/flyer.ac</path>
+    <path>Aircraft/SUMPAC/Models/tpole.ac</path>
     <offsets>
-        <x-m>-955</x-m>
-        <y-m> -75</y-m>
+        <x-m>-552</x-m>
+        <y-m>-150</y-m>
         <z-m>   0</z-m>
         <scale>0</scale>
         <pitch-deg>0.0</pitch-deg>
@@ -17,7 +17,7 @@
     <!--  Specularity fix -->
     <animation>
         <type>material</type>
-        <object-name>flyer</object-name>
+        <object-name>tpole</object-name>
         <shininess>128</shininess>
         <specular>
             <r>1</r>
@@ -35,7 +35,7 @@
     <!-- inherits model-combined-deferred -->
     <effect>
         <inherits-from>Aircraft/SUMPAC/Models/Effects/sumpac-exterior</inherits-from>
-        <object-name>flyer</object-name>
+        <object-name>tpole</object-name>
     </effect>
 
  </PropertyList>

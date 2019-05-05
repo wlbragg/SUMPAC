@@ -96,13 +96,11 @@ var weather_effects_loop = func {
 ############################################
 
 var StaticModel = {
-    new: func (name, lat, lon, elev, file) {
+    new: func (name, elev, file) {
         var m = {
             parents: [StaticModel],
             model: nil,
             model_file: file,
-            model_lat: lat,
-            model_lon: lon,
             model_elev: elev,
 	          object_name: name
         };
@@ -140,10 +138,12 @@ var StaticModel = {
 };
 
 # course
-StaticModel.new("flyerflagone",  51.18758886, -1.042835419, 174.7775625, "Aircraft/SUMPAC/Models/flyer-mesh-one.xml");
-StaticModel.new("flyerflagtwo",  51.1881468,  -1.31368661,  182.4025536, "Aircraft/SUMPAC/Models/flyer-mesh-two.xml");
-StaticModel.new("heightpoleone", 51.18720607, -1.036980553, 178.9781558, "Aircraft/SUMPAC/Models/height-pole-one.xml");
-StaticModel.new("heightpoletwo", 51.18855094, -1.03721551,  178.4192629, "Aircraft/SUMPAC/Models/height-pole-two.xml");
+StaticModel.new("flyerflagone", 184.632, "Aircraft/SUMPAC/Models/flyer-mesh-one.xml");
+StaticModel.new("flyerflagtwo", 180.757, "Aircraft/SUMPAC/Models/flyer-mesh-two.xml");
+StaticModel.new("heightpoleone",184.271, "Aircraft/SUMPAC/Models/height-pole-one.xml");
+StaticModel.new("heightpoletwo",182.600, "Aircraft/SUMPAC/Models/height-pole-two.xml");
+StaticModel.new("tpoleone",     184.271, "Aircraft/SUMPAC/Models/t-pole-one.xml");
+StaticModel.new("tpoletwo",     182.600, "Aircraft/SUMPAC/Models/t-pole-two.xml");
 
 ############################################
 # Global loop function
@@ -155,53 +155,80 @@ var global_system_loop = func{
         power_curve();
 }
 
+var sumpac_timer = maketimer(0.25, func{global_system_loop()});
+
 var nasalInit = setlistener("/sim/signals/fdm-initialized", func{
     #aircraft.data.add("fdm/jsbsim/pedal-power");
     #aircraft.data.load();
 
-    if (getprop("/sim/rendering/course")) {
+    # Kremer Prize Course is only allowed at EGHL
+    setprop("/sim/startup/airport-location", getprop("/sim/presets/airport-id") == "EGHL" and getprop("/sim/presets/runway") == "27");
+
+    if (getprop("/sim/rendering/course") and getprop("/sim/startup/airport-location")) {
         setprop("/sim/flyerflagone/enable", 1);
         setprop("/sim/flyerflagtwo/enable", 1);
-        setprop("/sim/heightpoleone/enable", 1);
-        setprop("/sim/heightpoletwo/enable", 1);
+        if (getprop("/sim/rendering/course-pole-type")){
+            setprop("/sim/heightpoleone/enable", 0);
+            setprop("/sim/heightpoletwo/enable", 0);
+            setprop("/sim/tpoleone/enable", 1);
+            setprop("/sim/tpoletwo/enable", 1);
+        } else {
+            setprop("/sim/tpoleone/enable", 0);
+            setprop("/sim/tpoletwo/enable", 0);
+            setprop("/sim/heightpoleone/enable", 1);
+            setprop("/sim/heightpoletwo/enable", 1);
+        }
     } else {
         setprop("/sim/flyerflagone/enable", 0);
         setprop("/sim/flyerflagtwo/enable", 0);
         setprop("/sim/heightpoleone/enable", 0);
         setprop("/sim/heightpoletwo/enable", 0);
+        setprop("/sim/tpoleone/enable", 0);
+        setprop("/sim/tpoletwo/enable", 0);
     }
-    setlistener("/sim/rendering/course", func (node) {
-        if (node.getBoolValue()) {
-            setprop("/sim/flyerflagone/enable", 1);
-            setprop("/sim/flyerflagtwo/enable", 1);
-            setprop("/sim/heightpoleone/enable", 1);
-            setprop("/sim/heightpoletwo/enable", 1);
-        } else {
-            setprop("/sim/flyerflagone/enable", 0);
-            setprop("/sim/flyerflagtwo/enable", 0);
-            setprop("/sim/heightpoleone/enable", 0);
-            setprop("/sim/heightpoletwo/enable", 0);
-        }
-    }, 0, 0);
 
     if (getprop("/sim/gui/show-power-output")) {
         fgcommand("dialog-show", props.Node.new({"dialog-name": "power-output-dialog"}));
     } else {
         fgcommand("dialog-close", props.Node.new({"dialog-name": "power-output-dialog"}));
     }
-    setlistener("/sim/gui/show-power-output", func (node) {      
-        if (node.getBoolValue()) {
-            fgcommand("dialog-show", props.Node.new({"dialog-name": "power-output-dialog"}));
-        } else {
-            fgcommand("dialog-close", props.Node.new({"dialog-name": "power-output-dialog"}));
-        }
-    }, 0, 0);
 
-    setlistener("/sim/rendering/reset", func (node) {
-        sumpac.reset_sumpac();
-    }, 0, 0);
-
-    var sumpac_timer = maketimer(0.25, func{global_system_loop()});
     sumpac_timer.start();
 });
 
+setlistener("/sim/rendering/course", func (node) {
+    if (node.getBoolValue() and getprop("/sim/startup/airport-location")) {
+        setprop("/sim/flyerflagone/enable", 1);
+        setprop("/sim/flyerflagtwo/enable", 1);
+        if (getprop("/sim/rendering/course-pole-type")){
+            setprop("/sim/heightpoleone/enable", 0);
+            setprop("/sim/heightpoletwo/enable", 0);
+            setprop("/sim/tpoleone/enable", 1);
+            setprop("/sim/tpoletwo/enable", 1);
+        } else {
+            setprop("/sim/tpoleone/enable", 0);
+            setprop("/sim/tpoletwo/enable", 0);
+            setprop("/sim/heightpoleone/enable", 1);
+            setprop("/sim/heightpoletwo/enable", 1);
+        }
+    } else {
+        setprop("/sim/flyerflagone/enable", 0);
+        setprop("/sim/flyerflagtwo/enable", 0);
+        setprop("/sim/heightpoleone/enable", 0);
+        setprop("/sim/heightpoletwo/enable", 0);
+        setprop("/sim/tpoleone/enable", 0);
+        setprop("/sim/tpoletwo/enable", 0);
+    }
+}, 0, 0);
+
+setlistener("/sim/gui/show-power-output", func (node) {      
+    if (node.getBoolValue()) {
+        fgcommand("dialog-show", props.Node.new({"dialog-name": "power-output-dialog"}));
+    } else {
+        fgcommand("dialog-close", props.Node.new({"dialog-name": "power-output-dialog"}));
+    }
+}, 0, 0);
+
+setlistener("/sim/rendering/reset", func (node) {
+    sumpac.reset_sumpac();
+}, 0, 0);

@@ -20,6 +20,16 @@
     <modal>false</modal>
     <draggable>true</draggable>
 
+    <nasal>
+        <open>   
+            # Kremer prize course pole type
+            var p = getprop("/sim/rendering/course-pole-type");
+            setprop("sim/model/sumpac/poletype_flag_0", 0);
+            setprop("sim/model/sumpac/poletype_flag_1", 0);
+            setprop("sim/model/sumpac/poletype_flag_" ~ p, 1);
+        </open>
+    </nasal>
+
     <group>
         <layout>hbox</layout>
 
@@ -91,15 +101,98 @@
                 </binding>
             </checkbox>
 
+          <hrule/>
+
             <checkbox>
                 <halign>left</halign>
                 <label>Kremer Prize Course</label>
                 <property>/sim/rendering/course</property>
+                <enable>
+                  <and>
+			              <not>
+				              <property>/sim/freeze/replay-state</property>
+			              </not>
+                    <property>/sim/startup/airport-location</property>
+                  </and>
+		            </enable>
                 <binding>
                     <command>property-toggle</command>
                     <property>/sim/rendering/course</property>
                 </binding>
             </checkbox>
+
+            <group>
+	            <layout>vbox</layout>
+	            <text>
+		            <label>Kremer Course Pole Type</label>
+		            <halign>center</halign>
+	            </text>
+	            <group>
+		            <layout>hbox</layout>
+		            <radio>
+			            <halign>left</halign>
+			            <label>Goal post</label>
+			            <property>sim/model/sumpac/poletype_flag_0</property>
+			            <live>true</live>
+			            <enable>
+                    <and>
+				              <not>
+					              <property>/sim/freeze/replay-state</property>
+				              </not>
+                      <property>/sim/rendering/course</property>
+                      <property>/sim/startup/airport-location</property>
+                    </and>
+			            </enable>
+			            <binding>
+				            <command>dialog-apply</command>
+			            </binding>
+			            <binding>
+				            <command>nasal</command>
+				            <script>
+					            setprop("/sim/rendering/course-pole-type", 0);
+                      setprop("/sim/tpoleone/enable", 0);
+                      setprop("/sim/tpoletwo/enable", 0);
+                      setprop("/sim/heightpoleone/enable", 1);
+                      setprop("/sim/heightpoletwo/enable", 1);
+					            setprop("sim/model/sumpac/poletype_flag_0", 1);
+					            setprop("sim/model/sumpac/poletype_flag_1", 0);
+				            </script>
+			            </binding>
+		            </radio>
+	
+		            <radio>
+			            <halign>left</halign>
+			            <label>T pole</label>
+			            <property>sim/model/sumpac/poletype_flag_1</property>
+			            <live>true</live>
+			            <enable>
+				            <and>
+				              <not>
+					              <property>/sim/freeze/replay-state</property>
+				              </not>
+                      <property>/sim/rendering/course</property>
+                      <property>/sim/startup/airport-location</property>
+                    </and>
+			            </enable>
+			            <binding>
+				            <command>dialog-apply</command>
+			            </binding>
+			            <binding>
+				            <command>nasal</command>
+				            <script>
+					            setprop("/sim/rendering/course-pole-type", 1);
+                      setprop("/sim/heightpoleone/enable", 0);
+                      setprop("/sim/heightpoletwo/enable", 0);
+                      setprop("/sim/tpoleone/enable", 1);
+                      setprop("/sim/tpoletwo/enable", 1);
+					            setprop("sim/model/sumpac/poletype_flag_0", 0);
+					            setprop("sim/model/sumpac/poletype_flag_1", 1);
+				            </script>
+			            </binding>
+		            </radio>
+		          </group>
+            </group>
+          <hrule/>
 
             <!--checkbox>
                 <halign>left</halign>

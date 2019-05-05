@@ -7,7 +7,7 @@
 
     <path>Aircraft/SUMPAC/Models/flyer.ac</path>
     <offsets>
-        <x-m>-50</x-m>
+        <x-m>-150</x-m>
         <y-m>-75</y-m>
         <z-m>  0</z-m>
         <scale>0</scale>

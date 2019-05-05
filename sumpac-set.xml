@@ -104,6 +104,7 @@
     </previews>
     <startup>
         <splash-texture>Aircraft/SUMPAC/Previews/sumpac1.jpg</splash-texture>
+        <airport-location type="bool">false</airport-location>
     </startup>
 
     <model>
@@ -151,6 +152,7 @@ More info here: http://wiki.flightgear.org/XML#3._Data
         <path>/controls/flight/two-axis-control</path>
         <path>/sim/model/covering</path>
         <path>/sim/rendering/course</path>
+        <path>/sim/rendering/course-pole-type</path>
     </aircraft-data>
 
     <multiplay>
@@ -175,6 +177,7 @@ More info here: http://wiki.flightgear.org/XML#3._Data
         <high-detail type="bool">false</high-detail>
         <reset type="bool">false</reset>
         <course type="bool">false</course>
+        <course-pole-type type="bool">false</course-pole-type>
     </rendering>
 
     <gui>
