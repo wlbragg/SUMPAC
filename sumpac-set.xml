@@ -209,7 +209,7 @@ More info here: http://wiki.flightgear.org/XML#3._Data
         <sumpac>
             <file>Nasal/sumpac.nas</file>
             <file>Nasal/flashlight.nas</file>
-            <file>Nasal/reset.nas</file>
+            <file>Nasal/kremer-course.nas</file>
         </sumpac>
     </nasal>
 

@@ -141,6 +141,9 @@
 				              </not>
                       <property>/sim/rendering/course</property>
                       <property>/sim/startup/airport-location</property>
+                      <not>
+                          <property>/sim/course/running</property>
+                      </not>
                     </and>
 			            </enable>
 			            <binding>
@@ -172,6 +175,9 @@
 				              </not>
                       <property>/sim/rendering/course</property>
                       <property>/sim/startup/airport-location</property>
+                      <not>
+                          <property>/sim/course/running</property>
+                      </not>
                     </and>
 			            </enable>
 			            <binding>

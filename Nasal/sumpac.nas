@@ -96,11 +96,13 @@ var weather_effects_loop = func {
 ############################################
 
 var StaticModel = {
-    new: func (name, elev, file) {
+    new: func (name, lat, lon, elev, file) {
         var m = {
             parents: [StaticModel],
             model: nil,
             model_file: file,
+            model_lat: lat,
+            model_lon: lon,
             model_elev: elev,
 	          object_name: name
         };
@@ -125,8 +127,7 @@ var StaticModel = {
                 break;
             }
         }
-        var position = geo.aircraft_position().set_alt(me.model_elev);
-        me.model = geo.put_model(me.model_file, position, getprop("/orientation/heading-deg"));
+        me.model = geo.put_model(me.model_file, me.model_lat, me.model_lon, me.model_elev, getprop("/orientation/heading-deg"));
     },
 
     remove: func {
@@ -138,12 +139,12 @@ var StaticModel = {
 };
 
 # course
-StaticModel.new("flyerflagone", 184.632, "Aircraft/SUMPAC/Models/flyer-mesh-one.xml");
-StaticModel.new("flyerflagtwo", 180.757, "Aircraft/SUMPAC/Models/flyer-mesh-two.xml");
-StaticModel.new("heightpoleone",184.271, "Aircraft/SUMPAC/Models/height-pole-one.xml");
-StaticModel.new("heightpoletwo",182.600, "Aircraft/SUMPAC/Models/height-pole-two.xml");
-StaticModel.new("tpoleone",     184.271, "Aircraft/SUMPAC/Models/t-pole-one.xml");
-StaticModel.new("tpoletwo",     182.600, "Aircraft/SUMPAC/Models/t-pole-two.xml");
+StaticModel.new("flyerflagone",  51.18726428, -1.021772109, 184.360917,  "Aircraft/SUMPAC/Models/flyer-mesh-one.xml");
+StaticModel.new("flyerflagtwo",  51.18671932, -1.033198977, 180.8352146, "Aircraft/SUMPAC/Models/flyer-mesh-two.xml");
+StaticModel.new("heightpoleone", 51.18738116, -1.027504013, 184.0068804, "Aircraft/SUMPAC/Models/height-pole-one.xml");
+StaticModel.new("heightpoletwo", 51.18634029, -1.027345667, 182.6147361, "Aircraft/SUMPAC/Models/height-pole-two.xml");
+StaticModel.new("tpoleone",      51.18743755, -1.027468627, 184.0948423, "Aircraft/SUMPAC/Models/t-pole-one.xml");
+StaticModel.new("tpoletwo",      51.18634029, -1.027345667, 182.6147361, "Aircraft/SUMPAC/Models/t-pole-two.xml");
 
 ############################################
 # Global loop function
@@ -165,26 +166,9 @@ var nasalInit = setlistener("/sim/signals/fdm-initialized", func{
     setprop("/sim/startup/airport-location", getprop("/sim/presets/airport-id") == "EGHL" and getprop("/sim/presets/runway") == "27");
 
     if (getprop("/sim/rendering/course") and getprop("/sim/startup/airport-location")) {
-        setprop("/sim/flyerflagone/enable", 1);
-        setprop("/sim/flyerflagtwo/enable", 1);
-        if (getprop("/sim/rendering/course-pole-type")){
-            setprop("/sim/heightpoleone/enable", 0);
-            setprop("/sim/heightpoletwo/enable", 0);
-            setprop("/sim/tpoleone/enable", 1);
-            setprop("/sim/tpoletwo/enable", 1);
-        } else {
-            setprop("/sim/tpoleone/enable", 0);
-            setprop("/sim/tpoletwo/enable", 0);
-            setprop("/sim/heightpoleone/enable", 1);
-            setprop("/sim/heightpoletwo/enable", 1);
-        }
+        sumpac.reset_course();
     } else {
-        setprop("/sim/flyerflagone/enable", 0);
-        setprop("/sim/flyerflagtwo/enable", 0);
-        setprop("/sim/heightpoleone/enable", 0);
-        setprop("/sim/heightpoletwo/enable", 0);
-        setprop("/sim/tpoleone/enable", 0);
-        setprop("/sim/tpoletwo/enable", 0);
+        sumpac.stop_course();
     }
 
     if (getprop("/sim/gui/show-power-output")) {
@@ -198,26 +182,9 @@ var nasalInit = setlistener("/sim/signals/fdm-initialized", func{
 
 setlistener("/sim/rendering/course", func (node) {
     if (node.getBoolValue() and getprop("/sim/startup/airport-location")) {
-        setprop("/sim/flyerflagone/enable", 1);
-        setprop("/sim/flyerflagtwo/enable", 1);
-        if (getprop("/sim/rendering/course-pole-type")){
-            setprop("/sim/heightpoleone/enable", 0);
-            setprop("/sim/heightpoletwo/enable", 0);
-            setprop("/sim/tpoleone/enable", 1);
-            setprop("/sim/tpoletwo/enable", 1);
-        } else {
-            setprop("/sim/tpoleone/enable", 0);
-            setprop("/sim/tpoletwo/enable", 0);
-            setprop("/sim/heightpoleone/enable", 1);
-            setprop("/sim/heightpoletwo/enable", 1);
-        }
+        sumpac.reset_course();
     } else {
-        setprop("/sim/flyerflagone/enable", 0);
-        setprop("/sim/flyerflagtwo/enable", 0);
-        setprop("/sim/heightpoleone/enable", 0);
-        setprop("/sim/heightpoletwo/enable", 0);
-        setprop("/sim/tpoleone/enable", 0);
-        setprop("/sim/tpoletwo/enable", 0);
+        sumpac.stop_course();
     }
 }, 0, 0);
 
@@ -230,5 +197,5 @@ setlistener("/sim/gui/show-power-output", func (node) {
 }, 0, 0);
 
 setlistener("/sim/rendering/reset", func (node) {
-    sumpac.reset_sumpac();
+    sumpac.reset_course();
 }, 0, 0);
