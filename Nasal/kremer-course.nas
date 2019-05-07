@@ -4,26 +4,68 @@
 ##############################################
 # Kremer Prize Course
 ##############################################
+
+var height_marker_one_pos = geo.Coord.new();
+var height_marker_two_pos = geo.Coord.new();
+height_marker_one_pos.set_latlon(51.18832335, -1.028179628);
+height_marker_two_pos.set_latlon(51.18585610, -1.027836159);
+var dist_to_height_marker = 0;
+var end_flag_set = 0;
+var message = "";
+
 var kremer_course_loop = func () {
 
     var current_height = getprop("/position/altitude-agl-ft")-2;
-    var course_running = getprop("/sim/course/running");
 
-    if (!course_running) {
-        if (current_height > 10) {
-            setprop("/sim/course/running", 1);
-            gui.popupTip("Kremer Course Now Running!", 5);
-        
+    if (!getprop("/sim/course/running")) {
+        dist_to_height_marker = geo.aircraft_position().distance_to(height_marker_one_pos);
+        if (dist_to_height_marker < 40) {
+            if (current_height > 10) {
+                setprop("/sim/course/running", 1);
+                gui.popupTip("Kremer Course Attempt Now Running!", 5);
+            }
         }
     } else {
-        if (current_height < 10 or getprop("/fdm/jsbsim/contact[5]/WOW") or getprop("/fdm/jsbsim/contact[6]/WOW")) {
-            gui.popupTip("Kremer Course Failed!", 5);
+        var height_failure = 0;
+        var touch_failure = 0;
+
+        dist_to_height_marker = geo.aircraft_position().distance_to(height_marker_two_pos);
+
+        if (dist_to_height_marker < 40)
+            end_flag_set = 1;
+
+        if (end_flag_set) {
+            if (dist_to_height_marker > 40 and current_height > 10) {
+                gui.popupTip("Kremer Course Attempt Successful!", 5);
+                setprop("/sim/course/running", 0);
+                kremer_course_timer.stop();
+            } else
+                if (current_height < 10) height_failure = 1;
+        }
+
+        if (getprop("/fdm/jsbsim/gear/unit[0]/WOW")) touch_failure = 1;
+        if (getprop("/fdm/jsbsim/gear/unit[1]/WOW")) touch_failure = 1;
+        if (getprop("/fdm/jsbsim/gear/unit[2]/WOW")) touch_failure = 1;
+        if (getprop("/fdm/jsbsim/gear/unit[3]/WOW")) touch_failure = 1;
+        if (getprop("/fdm/jsbsim/gear/unit[4]/WOW")) touch_failure = 1;
+        if (getprop("/fdm/jsbsim/contact/unit[5]/WOW")) touch_failure = 1;
+        if (getprop("/fdm/jsbsim/contact/unit[6]/WOW")) touch_failure = 1;
+
+        var course_failure = height_failure + touch_failure;
+
+gui.popupTip("dist_to_height_marker="~dist_to_height_marker~" end_flag_set="~end_flag_set, 2);
+
+        if (course_failure) {
+            if (height_failure) message = "you failed to maintain height over height markers";
+            if (touch_failure) message = "a portion of the aircraft touched the ground";
+
+            gui.popupTip("Course failed, "~ message ~ "!", 5);
+
             settimer(func {
-                if (!getprop("/engines/active-engine/running")) {
-                    setprop("/sim/course/failed", 1);
-                    kremer_course_timer.stop();
-                    reset_course();
-                }
+                setprop("/sim/course/failed", 1);
+                kremer_course_timer.stop();
+                gui.popupTip("Press the [r] key to reset and try again!", 5);
+                #reset_course();
             }, 5);
         }
     }
@@ -32,7 +74,8 @@ var kremer_course_loop = func () {
 var kremer_course_timer = maketimer(.25, kremer_course_loop);
 
 var reset_course = func () {
-    gui.popupTip("Kremer Course Re-Starting!", 5);
+
+    gui.popupTip("Kremer Course Attempt Reset!", 5);
     settimer(func {
         var elev_m = geo.elevation(getprop("/sim/presets/latitude-deg"), getprop("/sim/presets/longitude-deg"));
         var lat_init = getprop("/sim/presets/latitude-deg");
@@ -51,6 +94,9 @@ var reset_course = func () {
 		    setprop("orientation/heading-deg", heading_init); 
 		    setprop("/velocities/uBody-fps",0.0);
 		    setprop("/velocities/wBody-fps",0.0);
+
+        dist_to_height_marker = 0;
+        end_flag_set = 0;
 
         setprop("/sim/course/failed", 0);
         setprop("/sim/course/running", 0);

@@ -12,6 +12,7 @@
         <z-m>0</z-m>
         <scale>0</scale>
         <pitch-deg>0.0</pitch-deg>
+        <roll-deg>0.0</roll-deg>
     </offsets>
 
     <!--  Specularity fix -->

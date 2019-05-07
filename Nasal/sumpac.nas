@@ -127,7 +127,9 @@ var StaticModel = {
                 break;
             }
         }
+        #var position = geo.aircraft_position().set_alt(me.model_elev);
         me.model = geo.put_model(me.model_file, me.model_lat, me.model_lon, me.model_elev, getprop("/orientation/heading-deg"));
+        #me.model = geo.put_model(me.model_file, position, getprop("/orientation/heading-deg"));
     },
 
     remove: func {
@@ -139,12 +141,12 @@ var StaticModel = {
 };
 
 # course
-StaticModel.new("flyerflagone",  51.18726428, -1.021772109, 184.360917,  "Aircraft/SUMPAC/Models/flyer-mesh-one.xml");
-StaticModel.new("flyerflagtwo",  51.18671932, -1.033198977, 180.8352146, "Aircraft/SUMPAC/Models/flyer-mesh-two.xml");
-StaticModel.new("heightpoleone", 51.18738116, -1.027504013, 184.0068804, "Aircraft/SUMPAC/Models/height-pole-one.xml");
-StaticModel.new("heightpoletwo", 51.18634029, -1.027345667, 182.6147361, "Aircraft/SUMPAC/Models/height-pole-two.xml");
-StaticModel.new("tpoleone",      51.18743755, -1.027468627, 184.0948423, "Aircraft/SUMPAC/Models/t-pole-one.xml");
-StaticModel.new("tpoletwo",      51.18634029, -1.027345667, 182.6147361, "Aircraft/SUMPAC/Models/t-pole-two.xml");
+StaticModel.new("flyerflagone",  51.18727787, -1.021727783, 184.3699933, "Aircraft/SUMPAC/Models/flyer-mesh-one.xml");
+StaticModel.new("flyerflagtwo",  51.18666033, -1.034267544, 180.2510526, "Aircraft/SUMPAC/Models/flyer-mesh-two.xml");
+StaticModel.new("heightpoleone", 51.18832335, -1.028179628, 184.0429103, "Aircraft/SUMPAC/Models/height-pole-one.xml");
+StaticModel.new("heightpoletwo", 51.18585610, -1.027836159, 181.8886258, "Aircraft/SUMPAC/Models/height-pole-two.xml");
+StaticModel.new("tpoleone",      51.18832335, -1.028179628, 184.0429103, "Aircraft/SUMPAC/Models/t-pole-one.xml");
+StaticModel.new("tpoletwo",      51.18585610, -1.027836159, 181.8886258, "Aircraft/SUMPAC/Models/t-pole-two.xml");
 
 ############################################
 # Global loop function
@@ -197,5 +199,6 @@ setlistener("/sim/gui/show-power-output", func (node) {
 }, 0, 0);
 
 setlistener("/sim/rendering/reset", func (node) {
-    sumpac.reset_course();
+    if (getprop("/sim/rendering/course") and getprop("/sim/startup/airport-location")) 
+        sumpac.reset_course();
 }, 0, 0);
