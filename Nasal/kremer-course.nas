@@ -5,11 +5,17 @@
 # Kremer Prize Course
 ##############################################
 
+var flag_one_pos = geo.Coord.new();
+var flag_two_pos = geo.Coord.new();
 var height_marker_one_pos = geo.Coord.new();
 var height_marker_two_pos = geo.Coord.new();
 height_marker_one_pos.set_latlon(51.18832335, -1.028179628);
 height_marker_two_pos.set_latlon(51.18585610, -1.027836159);
+flag_one_pos.set_latlon(51.18727787, -1.021727783);
+flag_two_pos.set_latlon(51.18666033, -1.034267544);
 var dist_to_height_marker = 0;
+var dist_to_flag_one = 0;
+var dist_to_flag_two = 0;
 var end_flag_set = 0;
 var message = "";
 
@@ -53,7 +59,7 @@ var kremer_course_loop = func () {
 
         var course_failure = height_failure + touch_failure;
 
-gui.popupTip("dist_to_height_marker="~dist_to_height_marker~" end_flag_set="~end_flag_set, 2);
+#gui.popupTip("dist_to_height_marker="~dist_to_height_marker~" end_flag_set="~end_flag_set, 2);
 
         if (course_failure) {
             if (height_failure) message = "you failed to maintain height over height markers";
@@ -69,7 +75,15 @@ gui.popupTip("dist_to_height_marker="~dist_to_height_marker~" end_flag_set="~end
             }, 5);
         }
     }
-}
+
+dist_to_flag_one = geo.aircraft_position().distance_to(flag_one_pos);
+dist_to_flag_two = geo.aircraft_position().distance_to(flag_two_pos);
+
+#gui.popupTip("dist_to_height_marker="~dist_to_height_marker~"\n"~
+#  "end_flag_set="~end_flag_set~"\n"~
+#  "dist_to_flag_one="~dist_to_flag_one~"\n"~
+#  "dist_to_flag_two="~dist_to_flag_two, .5);
+#}
 
 var kremer_course_timer = maketimer(.25, kremer_course_loop);
 
@@ -103,6 +117,16 @@ var reset_course = func () {
 
         setprop("/sim/flyerflagone/enable", 1);
         setprop("/sim/flyerflagtwo/enable", 1);
+        setprop("/sim/conesetone/enable", 1);
+        setprop("/sim/conesettwo/enable", 1);
+        setprop("/sim/conesetthree/enable", 1);
+        setprop("/sim/conesetfour/enable", 1);
+        setprop("/sim/conesetfive/enable", 1);
+        setprop("/sim/conesetsix/enable", 1);
+        setprop("/sim/conesetseven/enable", 1);
+        setprop("/sim/coneseteight/enable", 1);
+        setprop("/sim/conesetnine/enable", 1);
+        setprop("/sim/conesetten/enable", 1);
         if (getprop("/sim/rendering/course-pole-type")){
             setprop("/sim/heightpoleone/enable", 0);
             setprop("/sim/heightpoletwo/enable", 0);
@@ -124,6 +148,16 @@ var stop_course = func () {
 
     setprop("/sim/flyerflagone/enable", 0);
     setprop("/sim/flyerflagtwo/enable", 0);
+    setprop("/sim/conesetone/enable", 0);
+    setprop("/sim/conesettwo/enable", 0);
+    setprop("/sim/conesetthree/enable", 0);
+    setprop("/sim/conesetfour/enable", 0);
+    setprop("/sim/conesetfive/enable", 0);
+    setprop("/sim/conesetsix/enable", 0);
+    setprop("/sim/conesetseven/enable", 0);
+    setprop("/sim/coneseteight/enable", 0);
+    setprop("/sim/conesetnine/enable", 0);
+    setprop("/sim/conesetten/enable", 0);
     setprop("/sim/heightpoleone/enable", 0);
     setprop("/sim/heightpoletwo/enable", 0);
     setprop("/sim/tpoleone/enable", 0);

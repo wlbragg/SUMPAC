@@ -96,7 +96,7 @@ var weather_effects_loop = func {
 ############################################
 
 var StaticModel = {
-    new: func (name, lat, lon, elev, file) {
+    new: func (name, lat, lon, elev, head, file) {
         var m = {
             parents: [StaticModel],
             model: nil,
@@ -104,6 +104,7 @@ var StaticModel = {
             model_lat: lat,
             model_lon: lon,
             model_elev: elev,
+            model_head: head,
 	          object_name: name
         };
 
@@ -127,9 +128,12 @@ var StaticModel = {
                 break;
             }
         }
-        #var position = geo.aircraft_position().set_alt(me.model_elev);
-        me.model = geo.put_model(me.model_file, me.model_lat, me.model_lon, me.model_elev, getprop("/orientation/heading-deg"));
-        #me.model = geo.put_model(me.model_file, position, getprop("/orientation/heading-deg"));
+        #if (me.object_name == "conesetone") {
+        #    var position = geo.aircraft_position().set_alt(me.model_elev);
+        #    me.model = geo.put_model(me.model_file, position, getprop("/orientation/heading-deg"));
+        #} else {
+            me.model = geo.put_model(me.model_file, me.model_lat, me.model_lon, me.model_elev, getprop("/orientation/heading-deg")+me.model_head);
+        #}        
     },
 
     remove: func {
@@ -141,12 +145,23 @@ var StaticModel = {
 };
 
 # course
-StaticModel.new("flyerflagone",  51.18727787, -1.021727783, 184.3699933, "Aircraft/SUMPAC/Models/flyer-mesh-one.xml");
-StaticModel.new("flyerflagtwo",  51.18666033, -1.034267544, 180.2510526, "Aircraft/SUMPAC/Models/flyer-mesh-two.xml");
-StaticModel.new("heightpoleone", 51.18832335, -1.028179628, 184.0429103, "Aircraft/SUMPAC/Models/height-pole-one.xml");
-StaticModel.new("heightpoletwo", 51.18585610, -1.027836159, 181.8886258, "Aircraft/SUMPAC/Models/height-pole-two.xml");
-StaticModel.new("tpoleone",      51.18832335, -1.028179628, 184.0429103, "Aircraft/SUMPAC/Models/t-pole-one.xml");
-StaticModel.new("tpoletwo",      51.18585610, -1.027836159, 181.8886258, "Aircraft/SUMPAC/Models/t-pole-two.xml");
+StaticModel.new("flyerflagone",  51.18727787, -1.021727783, 184.3699933,   0, "Aircraft/SUMPAC/Models/flyer-mesh-one.xml");
+StaticModel.new("flyerflagtwo",  51.18666033, -1.034267544, 180.2510526,   0, "Aircraft/SUMPAC/Models/flyer-mesh-two.xml");
+StaticModel.new("heightpoleone", 51.18832335, -1.028179628, 184.0429103,   0, "Aircraft/SUMPAC/Models/height-pole-one.xml");
+StaticModel.new("heightpoletwo", 51.18585610, -1.027836159, 181.8886258,   0, "Aircraft/SUMPAC/Models/height-pole-two.xml");
+StaticModel.new("tpoleone",      51.18832335, -1.028179628, 184.0429103,   0, "Aircraft/SUMPAC/Models/t-pole-one.xml");
+StaticModel.new("tpoletwo",      51.18585610, -1.027836159, 181.8886258,   0, "Aircraft/SUMPAC/Models/t-pole-two.xml");
+StaticModel.new("conesetone",    51.18666033, -1.034267544, 180.2510526,   0, "Aircraft/SUMPAC/Models/coneset-mesh-one.xml");
+StaticModel.new("conesettwo",    51.18666033, -1.034267544, 180.2510526, -45, "Aircraft/SUMPAC/Models/coneset-mesh-two.xml");
+StaticModel.new("conesetthree",  51.18666033, -1.034267544, 180.2510526,  90, "Aircraft/SUMPAC/Models/coneset-mesh-three.xml");
+StaticModel.new("conesetfour",   51.18666033, -1.034267544, 180.2510526,  45, "Aircraft/SUMPAC/Models/coneset-mesh-four.xml");
+StaticModel.new("conesetfive",   51.18666033, -1.034267544, 180.2510526,   0, "Aircraft/SUMPAC/Models/coneset-mesh-five.xml");
+StaticModel.new("conesetsix",    51.18727787, -1.021727783, 185.7999933,   0, "Aircraft/SUMPAC/Models/coneset-mesh-six.xml");
+StaticModel.new("conesetseven",  51.18727787, -1.021727783, 185.7999933,-135, "Aircraft/SUMPAC/Models/coneset-mesh-seven.xml");
+StaticModel.new("coneseteight",  51.18727787, -1.021727783, 184.3699933,  90, "Aircraft/SUMPAC/Models/coneset-mesh-eight.xml");
+StaticModel.new("conesetnine",   51.18727787, -1.021727783, 184.3699933, 135, "Aircraft/SUMPAC/Models/coneset-mesh-nine.xml");
+StaticModel.new("conesetten",    51.18727787, -1.021727783, 184.3699933,   0, "Aircraft/SUMPAC/Models/coneset-mesh-ten.xml");
+
 
 ############################################
 # Global loop function
