@@ -83,7 +83,7 @@ dist_to_flag_two = geo.aircraft_position().distance_to(flag_two_pos);
 #  "end_flag_set="~end_flag_set~"\n"~
 #  "dist_to_flag_one="~dist_to_flag_one~"\n"~
 #  "dist_to_flag_two="~dist_to_flag_two, .5);
-#}
+}
 
 var kremer_course_timer = maketimer(.25, kremer_course_loop);
 
