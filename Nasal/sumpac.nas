@@ -108,7 +108,7 @@ var StaticModel = {
 	          object_name: name
         };
 
-        setlistener("/sim/" ~ name ~ "/enable", func (node) {
+        setlistener("/sim/models/" ~ name ~ "/enable", func (node) {
             if (node.getBoolValue()) {
                 m.add();
             }
@@ -194,6 +194,12 @@ var nasalInit = setlistener("/sim/signals/fdm-initialized", func{
         fgcommand("dialog-close", props.Node.new({"dialog-name": "power-output-dialog"}));
     }
 
+    if (getprop("/sim/gui/show-range")) {
+        fgcommand("dialog-show", props.Node.new({"dialog-name": "range-dialog"}));
+    } else {
+        fgcommand("dialog-close", props.Node.new({"dialog-name": "range-dialog"}));
+    }
+
     sumpac_timer.start();
 });
 
@@ -210,6 +216,14 @@ setlistener("/sim/gui/show-power-output", func (node) {
         fgcommand("dialog-show", props.Node.new({"dialog-name": "power-output-dialog"}));
     } else {
         fgcommand("dialog-close", props.Node.new({"dialog-name": "power-output-dialog"}));
+    }
+}, 0, 0);
+
+setlistener("/sim/gui/show-range", func (node) {      
+    if (node.getBoolValue()) {
+        fgcommand("dialog-show", props.Node.new({"dialog-name": "range-dialog"}));
+    } else {
+        fgcommand("dialog-close", props.Node.new({"dialog-name": "range-dialog"}));
     }
 }, 0, 0);
 

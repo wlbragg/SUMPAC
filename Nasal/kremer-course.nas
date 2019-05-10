@@ -17,6 +17,7 @@ var dist_to_height_marker = 0;
 var dist_to_flag_one = 0;
 var dist_to_flag_two = 0;
 var end_flag_set = 0;
+var course_object_flag = 0;
 var message = "";
 
 var kremer_course_loop = func () {
@@ -37,11 +38,11 @@ var kremer_course_loop = func () {
 
         dist_to_height_marker = geo.aircraft_position().distance_to(height_marker_two_pos);
 
-        if (dist_to_height_marker < 40)
+        if (dist_to_height_marker < 30)
             end_flag_set = 1;
 
         if (end_flag_set) {
-            if (dist_to_height_marker > 40 and current_height > 10) {
+            if (dist_to_height_marker > 30 and current_height > 10) {
                 gui.popupTip("Kremer Course Attempt Successful!", 5);
                 setprop("/sim/course/running", 0);
                 kremer_course_timer.stop();
@@ -83,6 +84,11 @@ dist_to_flag_two = geo.aircraft_position().distance_to(flag_two_pos);
 #  "end_flag_set="~end_flag_set~"\n"~
 #  "dist_to_flag_one="~dist_to_flag_one~"\n"~
 #  "dist_to_flag_two="~dist_to_flag_two, .5);
+
+    #if (dist_to_height_marker < 30 and dist_to_cone_one)
+    #    course_object_flag = 1;
+
+    setprop("/sim/models/distance-to-course-object", dist_to_flag_one);
 }
 
 var kremer_course_timer = maketimer(.25, kremer_course_loop);
@@ -115,28 +121,28 @@ var reset_course = func () {
         setprop("/sim/course/failed", 0);
         setprop("/sim/course/running", 0);
 
-        setprop("/sim/flyerflagone/enable", 1);
-        setprop("/sim/flyerflagtwo/enable", 1);
-        setprop("/sim/conesetone/enable", 1);
-        setprop("/sim/conesettwo/enable", 1);
-        setprop("/sim/conesetthree/enable", 1);
-        setprop("/sim/conesetfour/enable", 1);
-        setprop("/sim/conesetfive/enable", 1);
-        setprop("/sim/conesetsix/enable", 1);
-        setprop("/sim/conesetseven/enable", 1);
-        setprop("/sim/coneseteight/enable", 1);
-        setprop("/sim/conesetnine/enable", 1);
-        setprop("/sim/conesetten/enable", 1);
+        setprop("/sim/models/flyerflagone/enable", 1);
+        setprop("/sim/models/flyerflagtwo/enable", 1);
+        setprop("/sim/models/conesetone/enable", 1);
+        setprop("/sim/models/conesettwo/enable", 1);
+        setprop("/sim/models/conesetthree/enable", 1);
+        setprop("/sim/models/conesetfour/enable", 1);
+        setprop("/sim/models/conesetfive/enable", 1);
+        setprop("/sim/models/conesetsix/enable", 1);
+        setprop("/sim/models/conesetseven/enable", 1);
+        setprop("/sim/models/coneseteight/enable", 1);
+        setprop("/sim/models/conesetnine/enable", 1);
+        setprop("/sim/models/conesetten/enable", 1);
         if (getprop("/sim/rendering/course-pole-type")){
-            setprop("/sim/heightpoleone/enable", 0);
-            setprop("/sim/heightpoletwo/enable", 0);
-            setprop("/sim/tpoleone/enable", 1);
-            setprop("/sim/tpoletwo/enable", 1);
+            setprop("/sim/models/heightpoleone/enable", 0);
+            setprop("/sim/models/heightpoletwo/enable", 0);
+            setprop("/sim/models/tpoleone/enable", 1);
+            setprop("/sim/models/tpoletwo/enable", 1);
         } else {
-            setprop("/sim/tpoleone/enable", 0);
-            setprop("/sim/tpoletwo/enable", 0);
-            setprop("/sim/heightpoleone/enable", 1);
-            setprop("/sim/heightpoletwo/enable", 1);
+            setprop("/sim/models/tpoleone/enable", 0);
+            setprop("/sim/models/tpoletwo/enable", 0);
+            setprop("/sim/models/heightpoleone/enable", 1);
+            setprop("/sim/models/heightpoletwo/enable", 1);
         }
 
         if (!kremer_course_timer.isRunning)
@@ -146,22 +152,22 @@ var reset_course = func () {
 
 var stop_course = func () {
 
-    setprop("/sim/flyerflagone/enable", 0);
-    setprop("/sim/flyerflagtwo/enable", 0);
-    setprop("/sim/conesetone/enable", 0);
-    setprop("/sim/conesettwo/enable", 0);
-    setprop("/sim/conesetthree/enable", 0);
-    setprop("/sim/conesetfour/enable", 0);
-    setprop("/sim/conesetfive/enable", 0);
-    setprop("/sim/conesetsix/enable", 0);
-    setprop("/sim/conesetseven/enable", 0);
-    setprop("/sim/coneseteight/enable", 0);
-    setprop("/sim/conesetnine/enable", 0);
-    setprop("/sim/conesetten/enable", 0);
-    setprop("/sim/heightpoleone/enable", 0);
-    setprop("/sim/heightpoletwo/enable", 0);
-    setprop("/sim/tpoleone/enable", 0);
-    setprop("/sim/tpoletwo/enable", 0);
+    setprop("/sim/models/flyerflagone/enable", 0);
+    setprop("/sim/models/flyerflagtwo/enable", 0);
+    setprop("/sim/models/conesetone/enable", 0);
+    setprop("/sim/models/conesettwo/enable", 0);
+    setprop("/sim/models/conesetthree/enable", 0);
+    setprop("/sim/models/conesetfour/enable", 0);
+    setprop("/sim/models/conesetfive/enable", 0);
+    setprop("/sim/models/conesetsix/enable", 0);
+    setprop("/sim/models/conesetseven/enable", 0);
+    setprop("/sim/models/coneseteight/enable", 0);
+    setprop("/sim/models/conesetnine/enable", 0);
+    setprop("/sim/models/conesetten/enable", 0);
+    setprop("/sim/models/heightpoleone/enable", 0);
+    setprop("/sim/models/heightpoletwo/enable", 0);
+    setprop("/sim/models/tpoleone/enable", 0);
+    setprop("/sim/models/tpoletwo/enable", 0);
 
     setprop("/sim/course/running", 0);
 

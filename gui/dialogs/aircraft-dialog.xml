@@ -101,6 +101,16 @@
                 </binding>
             </checkbox>
 
+            <checkbox>
+                <halign>left</halign>
+                <label>Course Object Ranging On/Off</label>
+                <property>/sim/gui/show-range</property>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>/sim/gui/show-range</property>
+                </binding>
+            </checkbox>
+
           <hrule/>
 
             <checkbox>
@@ -153,10 +163,10 @@
 				            <command>nasal</command>
 				            <script>
 					            setprop("/sim/rendering/course-pole-type", 0);
-                      setprop("/sim/tpoleone/enable", 0);
-                      setprop("/sim/tpoletwo/enable", 0);
-                      setprop("/sim/heightpoleone/enable", 1);
-                      setprop("/sim/heightpoletwo/enable", 1);
+                      setprop("/sim/models/tpoleone/enable", 0);
+                      setprop("/sim/models/tpoletwo/enable", 0);
+                      setprop("/sim/models/heightpoleone/enable", 1);
+                      setprop("/sim/models/heightpoletwo/enable", 1);
 					            setprop("sim/model/sumpac/poletype_flag_0", 1);
 					            setprop("sim/model/sumpac/poletype_flag_1", 0);
 				            </script>
@@ -187,10 +197,10 @@
 				            <command>nasal</command>
 				            <script>
 					            setprop("/sim/rendering/course-pole-type", 1);
-                      setprop("/sim/heightpoleone/enable", 0);
-                      setprop("/sim/heightpoletwo/enable", 0);
-                      setprop("/sim/tpoleone/enable", 1);
-                      setprop("/sim/tpoletwo/enable", 1);
+                      setprop("/sim/models/heightpoleone/enable", 0);
+                      setprop("/sim/models/heightpoletwo/enable", 0);
+                      setprop("/sim/models/tpoleone/enable", 1);
+                      setprop("/sim/models/tpoletwo/enable", 1);
 					            setprop("sim/model/sumpac/poletype_flag_0", 0);
 					            setprop("sim/model/sumpac/poletype_flag_1", 1);
 				            </script>

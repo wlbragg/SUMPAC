@@ -148,6 +148,7 @@ More info here: http://wiki.flightgear.org/XML#3._Data
         <path>/sim/rendering/shadow-volume</path>
         <path>/sim/model/occupants</path-->    
         <path>/sim/gui/show-power-output</path>
+        <path>/sim/gui/show-range</path>
         <path>/sim/rendering/high-detail</path>
         <path>/controls/flight/two-axis-control</path>
         <path>/sim/model/covering</path>
@@ -182,6 +183,7 @@ More info here: http://wiki.flightgear.org/XML#3._Data
 
     <gui>
         <show-power-output type="bool">true</show-power-output>
+        <show-range type="bool">false</show-range>
     </gui>
 
   </sim>
@@ -212,6 +214,16 @@ More info here: http://wiki.flightgear.org/XML#3._Data
             <file>Nasal/kremer-course.nas</file>
         </sumpac>
     </nasal>
+
+    <payload>
+        <weight>
+            <name type="string">Pilot</name>
+            <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
+            <arm-in alias="/fdm/jsbsim/inertia/pointmass-location-X-inches[0]"/>
+            <min-lb type="double">0.0</min-lb>
+            <max-lb type="double">300.0</max-lb>
+        </weight>
+    </payload>
 
     <fdm>
         <jsbsim>
