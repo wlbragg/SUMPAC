@@ -18,14 +18,14 @@
     <!--  Specularity fix -->
     <animation>
         <type>material</type>
-        <object-name>rudder-cable</object-name>
+        <!--object-name>rudder-cable</object-name>
         <object-name>elevator-cable</object-name>
-        <object-name>interior-flight-control</object-name>
+        <object-name>interior-flight-control</object-name-->
         <object-name>pulleys</object-name>
-        <object-name>steering-column</object-name>
-        <object-name>propeller-wiring</object-name>
+        <!--object-name>steering-column</object-name>
+        <object-name>propeller-wiring</object-name-->
         <object-name>hardware</object-name>
-        <object-name>framing</object-name>
+        <!--object-name>framing</object-name-->
         <object-name>wing-cable</object-name>
         <!--object-name>left-aileron-spring</object-name-->
         <object-name>left-aileron-cable-for</object-name>
@@ -64,14 +64,14 @@
     <!-- inherits model-combined-deferred -->
     <effect>
         <inherits-from>Aircraft/SUMPAC/Models/Effects/sumpac-exterior</inherits-from>
-        <object-name>rudder-cable</object-name>
+        <!--object-name>rudder-cable</object-name>
         <object-name>elevator-cable</object-name>
-        <object-name>interior-flight-control</object-name>
+        <object-name>interior-flight-control</object-name-->
         <object-name>pulleys</object-name>
-        <object-name>steering-column</object-name>
-        <object-name>propeller-wiring</object-name>
+        <!--object-name>steering-column</object-name>
+        <object-name>propeller-wiring</object-name-->
         <object-name>hardware</object-name>
-        <object-name>framing</object-name>
+        <!--object-name>framing</object-name-->
         <object-name>wing-cable</object-name>
         <!--object-name>left-aileron-spring</object-name-->
         <object-name>left-aileron-cable-for</object-name>
@@ -103,12 +103,12 @@
         <max-deg>15</max-deg>
         <factor>15</factor>
         <axis>
-            <x1-m>  0.12739</x1-m>
-            <y1-m>-10.12375</y1-m>
-            <z1-m>  0.52364</z1-m>
-            <x2-m>  0.2297 </x2-m>
-            <y2-m> -6.92812</y2-m>
-            <z2-m>  0.37201</z2-m>
+            <x1-m>  0.88348</x1-m>
+            <y1-m>-10.80032</y1-m>
+            <z1-m>  1.16352</z1-m>
+            <x2-m>  1.0306 </x2-m>
+            <y2-m> -6.26519</y2-m>
+            <z2-m>  0.94267</z2-m>
         </axis>
     </animation>
 
@@ -136,12 +136,12 @@
       </condition>
       <factor>.05</factor>
       <axis>
-          <x1-m>-0.18142</x1-m>
-          <y1-m>-3.51859</y1-m>
-          <z1-m> 0.24348</z1-m>
-          <x2-m>-0.18144</x2-m>
-          <y2-m>-3.51871</y2-m>
-          <z2-m> 0.24148</z2-m>
+          <x1-m> 0.58706</x1-m>
+          <y1-m>-3.51399</y1-m>
+          <z1-m> 0.84397</z1-m>
+          <x2-m> 0.58706</x2-m>
+          <y2-m>-3.51399</y2-m>
+          <z2-m> 0.84397</z2-m>
       </axis>
     </animation>
     <animation>
@@ -156,12 +156,12 @@
       </condition>
       <factor>-.05</factor>
       <axis>
-          <x1-m>-0.18142</x1-m>
-          <y1-m>-3.51859</y1-m>
-          <z1-m> 0.24348</z1-m>
-          <x2-m>-0.18144</x2-m>
-          <y2-m>-3.51871</y2-m>
-          <z2-m> 0.24148</z2-m>
+          <x1-m> 0.58873</x1-m>
+          <y1-m>-8.3759 </y1-m>
+          <z1-m> 1.05472</z1-m>
+          <x2-m> 0.58797</x2-m>
+          <y2-m>-8.37547</y2-m>
+          <z2-m> 1.06771</z2-m>
       </axis>
     </animation>
 
@@ -341,12 +341,12 @@
     	<max-deg>20</max-deg>
     	<factor>-20</factor>
     	<axis>
-          <x1-m>  0.25726</x1-m>
-          <y1-m>  6.93054</y1-m>
-          <z1-m>  0.26515</z1-m>
-          <x2-m>  0.17548</x2-m>
-          <y2-m> 10.12862</y2-m>
-          <z2-m>  0.36557</z2-m>
+          <x1-m>  1.05844</x1-m>
+          <y1-m>  6.26553</y1-m>
+          <z1-m>  0.84702</z1-m>
+          <x2-m>  0.93018</x2-m>
+          <y2-m> 10.80542</y2-m>
+          <z2-m>  0.99369</z2-m>
       </axis>
     </animation>
 

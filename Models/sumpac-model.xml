@@ -156,6 +156,21 @@
         </condition>
     </model>
 
+    <!--model>
+        <path>interior-mesh.xml</path>
+        <offsets>
+            <x-m> 0 </x-m>
+            <y-m> 0 </y-m>
+            <z-m> 0 </z-m>
+        </offsets>
+        <condition>
+            <equals>
+                <property>/sim/rendering/high-detail</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </model-->
+
     <animation>
         <type>select</type>
         <object-name>wing-left-leading-edge</object-name>
@@ -221,12 +236,12 @@
     <property>fdm/jsbsim/human-output/electric-motor</property>
     <factor>1</factor>
     <axis>
-        <x1-m> 0.91015</x1-m>
+        <x1-m> 1.68031</x1-m>
         <y1-m> 0.01108</y1-m>
-        <z1-m> 1.55751</z1-m>
-        <x2-m> 1.2569</x2-m>
+        <z1-m> 2.16518</z1-m>
+        <x2-m> 2.02706</x2-m>
         <y2-m> 0.01044</y2-m>
-        <z2-m> 1.57816</z2-m>
+        <z2-m> 2.18583</z2-m>
     </axis>
   </animation>
 
@@ -241,9 +256,9 @@
             <z> 0</z>
         </axis>
         <center>
-            <x-m>-0.88216</x-m>
-            <y-m> 0.01366</y-m>
-            <z-m>-0.77708</z-m>
+            <x-m>-0.112</x-m>
+            <y-m> 0.0137</y-m>
+            <z-m>-0.16941</z-m>
         </center>
   </animation>
 
@@ -258,9 +273,9 @@
             <z> 0</z>
         </axis>
         <center>
-            <x-m> 0.05341</x-m>
-            <y-m>-0.02206</y-m>
-            <z-m>-0.52982</z-m>
+            <x-m> 0.82337</x-m>
+            <y-m>-0.00638</y-m>
+            <z-m> 0.07783</z-m>
         </center>
   </animation>
 
@@ -275,9 +290,9 @@
             <z> 0</z>
         </axis>
         <center>
-            <x-m> 4.94543</x-m>
+            <x-m> 5.7156</x-m>
             <y-m>-0.05199</y-m>
-            <z-m>-0.23039</z-m>
+            <z-m> 0.37727</z-m>
         </center>
   </animation>
 
@@ -292,9 +307,9 @@
             <z> 0</z>
         </axis>
         <center>
-            <x-m>-0.21368</x-m>
+            <x-m> 0.55648</x-m>
             <y-m>-3.17608</y-m>
-            <z-m>-0.72912</z-m>
+            <z-m>-0.12146</z-m>
         </center>
   </animation>
 
@@ -309,9 +324,9 @@
             <z> 0</z>
         </axis>
         <center>
-            <x-m>-0.19972</x-m>
+            <x-m> 0.57045</x-m>
             <y-m> 3.16383</y-m>
-            <z-m>-0.77852</z-m>
+            <z-m>-0.17086</z-m>
         </center>
   </animation>
 
@@ -325,9 +340,9 @@
       <max-deg>10</max-deg>
       <factor>-10</factor>
       <center>
-          <x-m> 5.64308</x-m>
-          <y-m>-0.01307</y-m>
-          <z-m> 0.01116</z-m>
+          <x-m> 6.42306</x-m>
+          <y-m>-0.10806</y-m>
+          <z-m> 0.6215 </z-m>
       </center>
       <axis>
           <x> 0</x>
@@ -346,12 +361,12 @@
     <max-deg>30</max-deg>
     <factor>-30</factor>
     <axis>
-        <x1-m> 4.64722</x1-m>
-        <y1-m> 0.00643</y1-m>
-        <z1-m> 2.18222</z1-m>
-        <x2-m> 4.77629</x2-m>
-        <y2-m>-0.01029</y2-m>
-        <z2-m> 0.03666</z2-m>
+        <x1-m> 5.41455</x1-m>
+        <y1-m> 0.00629</y1-m>
+        <z1-m> 2.78964</z1-m>
+        <x2-m> 5.53802</x2-m>
+        <y2-m>-0.00995</y2-m>
+        <z2-m> 0.67256</z2-m>
     </axis>
   </animation>
 
@@ -364,12 +379,12 @@
     <max-deg>15</max-deg>
     <factor>15</factor>
     <axis>
-        <x1-m>  0.12739</x1-m>
-        <y1-m>-10.12375</y1-m>
-        <z1-m>  0.52364</z1-m>
-        <x2-m>  0.2297 </x2-m>
-        <y2-m> -6.92812</y2-m>
-        <z2-m>  0.37201</z2-m>
+        <x1-m>  0.88348</x1-m>
+        <y1-m>-10.80032</y1-m>
+        <z1-m>  1.16352</z1-m>
+        <x2-m>  1.0306 </x2-m>
+        <y2-m> -6.26519</y2-m>
+        <z2-m>  0.94267</z2-m>
     </axis>
   </animation>
 
@@ -382,12 +397,12 @@
   	<max-deg>20</max-deg>
   	<factor>-20</factor>
   	<axis>
-        <x1-m>  0.25726</x1-m>
-        <y1-m>  6.93054</y1-m>
-        <z1-m>  0.26515</z1-m>
-        <x2-m>  0.17548</x2-m>
-        <y2-m> 10.12862</y2-m>
-        <z2-m>  0.36557</z2-m>
+        <x1-m>  1.05844</x1-m>
+        <y1-m>  6.26553</y1-m>
+        <z1-m>  0.84702</z1-m>
+        <x2-m>  0.93018</x2-m>
+        <y2-m> 10.80542</y2-m>
+        <z2-m>  0.99369</z2-m>
     </axis>
   </animation>
 

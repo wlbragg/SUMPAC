@@ -84,7 +84,6 @@ dist_to_flag_two = geo.aircraft_position().distance_to(flag_two_pos);
 #  "end_flag_set="~end_flag_set~"\n"~
 #  "dist_to_flag_one="~dist_to_flag_one~"\n"~
 #  "dist_to_flag_two="~dist_to_flag_two, .5);
-
     #if (dist_to_height_marker < 30 and dist_to_cone_one)
     #    course_object_flag = 1;
 
