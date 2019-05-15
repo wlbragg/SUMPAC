@@ -24,13 +24,14 @@
                   .setText("0")
                   .setTranslation(20, 20)
                   .setAlignment("left-top")
-                  .setFontSize(90)
+                  .setFontSize(30)
                   .setFont("LiberationFonts/LiberationSans-Regular.ttf")
                   .set("max-width", 230)
                   .setColor(1,1,1);
 
               var range_loop = func { 
-                  text.setText(sprintf("%4.0f", getprop("/sim/models/distance-to-course-object")));
+                  text.setText("Flag One " ~ sprintf("%4.0f", getprop("/sim/models/distance-to-flag-one"))~"\n"~ 
+                  "Flag Two " ~ sprintf("%4.0f", getprop("/sim/models/distance-to-flag-two")));
               }
 
               var range_timer = maketimer(0.25, func{range_loop()});

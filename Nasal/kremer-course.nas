@@ -23,6 +23,20 @@ var message = "";
 var kremer_course_loop = func () {
 
     var current_height = getprop("/position/altitude-agl-ft")-2;
+    dist_to_height_marker = geo.aircraft_position().distance_to(height_marker_two_pos);
+
+    dist_to_flag_one = geo.aircraft_position().distance_to(flag_one_pos);
+    dist_to_flag_two = geo.aircraft_position().distance_to(flag_two_pos);
+
+    #gui.popupTip("dist_to_height_marker="~dist_to_height_marker~"\n"~
+    #  "end_flag_set="~end_flag_set~"\n"~
+    #  "dist_to_flag_one="~dist_to_flag_one~"\n"~
+    #  "dist_to_flag_two="~dist_to_flag_two, .5);
+        #if (dist_to_height_marker < 30 and dist_to_cone_one)
+        #    course_object_flag = 1;
+
+    setprop("/sim/models/distance-to-flag-one", dist_to_flag_one);
+    setprop("/sim/models/distance-to-flag-two", dist_to_flag_two);
 
     if (!getprop("/sim/course/running")) {
         dist_to_height_marker = geo.aircraft_position().distance_to(height_marker_one_pos);
@@ -35,8 +49,6 @@ var kremer_course_loop = func () {
     } else {
         var height_failure = 0;
         var touch_failure = 0;
-
-        dist_to_height_marker = geo.aircraft_position().distance_to(height_marker_two_pos);
 
         if (dist_to_height_marker < 30)
             end_flag_set = 1;
@@ -77,18 +89,6 @@ var kremer_course_loop = func () {
         }
     }
 
-dist_to_flag_one = geo.aircraft_position().distance_to(flag_one_pos);
-dist_to_flag_two = geo.aircraft_position().distance_to(flag_two_pos);
-
-#gui.popupTip("dist_to_height_marker="~dist_to_height_marker~"\n"~
-#  "end_flag_set="~end_flag_set~"\n"~
-#  "dist_to_flag_one="~dist_to_flag_one~"\n"~
-#  "dist_to_flag_two="~dist_to_flag_two, .5);
-
-    #if (dist_to_height_marker < 30 and dist_to_cone_one)
-    #    course_object_flag = 1;
-
-    setprop("/sim/models/distance-to-course-object", dist_to_flag_one);
 }
 
 var kremer_course_timer = maketimer(.25, kremer_course_loop);
