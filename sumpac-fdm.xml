@@ -82,7 +82,7 @@
    </location>
    <pointmass name="Pilot Weight">
     <description> Pilot Weight</description>
-    <weight unit="LBS">    155.0 </weight>
+    <weight unit="LBS">224.0</weight>
     <location name="POINTMASS" unit="M">
       <x>   0.790 </x>
       <y>   0.00  </y>

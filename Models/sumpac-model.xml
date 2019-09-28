@@ -139,6 +139,7 @@
     <effect>
         <inherits-from>Aircraft/SUMPAC/Models/Effects/sumpac-interior</inherits-from>
         <object-name>cockpit-interior</object-name>
+        <object-name>horitape</object-name>
     </effect>
 
     <model>
