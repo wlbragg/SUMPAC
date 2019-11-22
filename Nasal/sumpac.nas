@@ -92,78 +92,6 @@ var weather_effects_loop = func {
 }
 
 ############################################
-# Static objects: Kremer Prize Course
-############################################
-
-var StaticModel = {
-    new: func (name, lat, lon, elev, head, file) {
-        var m = {
-            parents: [StaticModel],
-            model: nil,
-            model_file: file,
-            model_lat: lat,
-            model_lon: lon,
-            model_elev: elev,
-            model_head: head,
-	          object_name: name
-        };
-
-        setlistener("/sim/models/" ~ name ~ "/enable", func (node) {
-            if (node.getBoolValue()) {
-                m.add();
-            }
-            else {
-                m.remove();
-            }
-        });
-
-        return m;
-    },
-
-    add: func {
-        var manager = props.globals.getNode("/models", 1);
-        var i = 0;
-        for (; 1; i += 1) {
-            if (manager.getChild("model", i, 0) == nil) {
-                break;
-            }
-        }
-        #if (me.object_name == "conesetone") {
-        #    var position = geo.aircraft_position().set_alt(me.model_elev);
-        #    me.model = geo.put_model(me.model_file, position, getprop("/orientation/heading-deg"));
-        #} else {
-            me.model = geo.put_model(me.model_file, me.model_lat, me.model_lon, me.model_elev, getprop("/orientation/heading-deg")+me.model_head);
-        #}        
-    },
-
-    remove: func {
-        if (me.model != nil) {
-            me.model.remove();
-            me.model = nil;
-        }
-    }
-};
-
-# course
-StaticModel.new("flyerflagone",  51.18727787, -1.021727783, 184.3699933,   0, "Aircraft/SUMPAC/Models/flyer-mesh-one.xml");
-StaticModel.new("flyerflagtwo",  51.18666033, -1.034267544, 180.2510526,   0, "Aircraft/SUMPAC/Models/flyer-mesh-two.xml");
-StaticModel.new("heightpoleone", 51.18832335, -1.028179628, 184.0429103,   0, "Aircraft/SUMPAC/Models/height-pole-one.xml");
-StaticModel.new("heightpoletwo", 51.18585610, -1.027836159, 181.8886258,   0, "Aircraft/SUMPAC/Models/height-pole-two.xml");
-StaticModel.new("tpoleone",      51.18832335, -1.028179628, 184.0429103,   0, "Aircraft/SUMPAC/Models/t-pole-one.xml");
-StaticModel.new("tpoletwo",      51.18585610, -1.027836159, 181.8886258,   0, "Aircraft/SUMPAC/Models/t-pole-two.xml");
-StaticModel.new("conesetone",    51.18666033, -1.034267544, 180.2510526,   0, "Aircraft/SUMPAC/Models/coneset-mesh-one.xml");
-StaticModel.new("conesettwo",    51.18666033, -1.034267544, 180.2510526, -45, "Aircraft/SUMPAC/Models/coneset-mesh-two.xml");
-StaticModel.new("conesetthree",  51.18666033, -1.034267544, 180.2510526,  90, "Aircraft/SUMPAC/Models/coneset-mesh-three.xml");
-StaticModel.new("conesetfour",   51.18666033, -1.034267544, 180.2510526,  45, "Aircraft/SUMPAC/Models/coneset-mesh-four.xml");
-StaticModel.new("conesetfive",   51.18666033, -1.034267544, 180.2510526,   0, "Aircraft/SUMPAC/Models/coneset-mesh-five.xml");
-StaticModel.new("conesetsix",    51.18727787, -1.021727783, 185.7999933,   0, "Aircraft/SUMPAC/Models/coneset-mesh-six.xml");
-StaticModel.new("conesetseven",  51.18727787, -1.021727783, 185.7999933,-135, "Aircraft/SUMPAC/Models/coneset-mesh-seven.xml");
-StaticModel.new("coneseteight",  51.18727787, -1.021727783, 184.3699933,  90, "Aircraft/SUMPAC/Models/coneset-mesh-eight.xml");
-StaticModel.new("conesetnine",   51.18727787, -1.021727783, 184.3699933, 135, "Aircraft/SUMPAC/Models/coneset-mesh-nine.xml");
-StaticModel.new("conesetten",    51.18727787, -1.021727783, 184.3699933,   0, "Aircraft/SUMPAC/Models/coneset-mesh-ten.xml");
-
-
-############################################
 # Global loop function
 # If you need to run nasal as loop, add it in this function
 ############################################
@@ -178,15 +106,6 @@ var sumpac_timer = maketimer(0.25, func{global_system_loop()});
 var nasalInit = setlistener("/sim/signals/fdm-initialized", func{
     #aircraft.data.add("fdm/jsbsim/pedal-power");
     #aircraft.data.load();
-
-    # Kremer Prize Course is only allowed at EGHL
-    setprop("/sim/startup/airport-location", getprop("/sim/presets/airport-id") == "EGHL" and getprop("/sim/presets/runway") == "27");
-
-    if (getprop("/sim/rendering/course") and getprop("/sim/startup/airport-location")) {
-        sumpac.reset_course();
-    } else {
-        sumpac.stop_course();
-    }
 
     if (getprop("/sim/gui/show-power-output")) {
         fgcommand("dialog-show", props.Node.new({"dialog-name": "power-output-dialog"}));
@@ -203,14 +122,6 @@ var nasalInit = setlistener("/sim/signals/fdm-initialized", func{
     sumpac_timer.start();
 });
 
-setlistener("/sim/rendering/course", func (node) {
-    if (node.getBoolValue() and getprop("/sim/startup/airport-location")) {
-        sumpac.reset_course();
-    } else {
-        sumpac.stop_course();
-    }
-}, 0, 0);
-
 setlistener("/sim/gui/show-power-output", func (node) {      
     if (node.getBoolValue()) {
         fgcommand("dialog-show", props.Node.new({"dialog-name": "power-output-dialog"}));
@@ -225,9 +136,4 @@ setlistener("/sim/gui/show-range", func (node) {
     } else {
         fgcommand("dialog-close", props.Node.new({"dialog-name": "range-dialog"}));
     }
-}, 0, 0);
-
-setlistener("/sim/rendering/reset", func (node) {
-    if (getprop("/sim/rendering/course") and getprop("/sim/startup/airport-location")) 
-        sumpac.reset_course();
 }, 0, 0);
