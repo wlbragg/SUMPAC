@@ -186,6 +186,10 @@ More info here: http://wiki.flightgear.org/XML#3._Data
         <show-range type="bool">false</show-range>
     </gui>
 
+    <instrumentation>
+        <path>Systems/instrumentation.xml</path>
+    </instrumentation>
+
   </sim>
 
     <input>
@@ -246,7 +250,25 @@ More info here: http://wiki.flightgear.org/XML#3._Data
     <controls>
         <flight>
             <two-axis-control type="bool">false</two-axis-control>
+
+            <!-- elevator trim is .001 per keyboard step -->
+            <elevator-trim type="double">-0.023</elevator-trim>
         </flight>
     </controls>
+
+    <instrumentation>
+        <attitude-indicator>
+            <config>
+                <tumble-flag archive="y" type="bool">true</tumble-flag>
+            </config>
+	        <spin>1</spin>
+        </attitude-indicator>
+        <encoder>
+            <serviceable type="bool">true</serviceable>
+        </encoder>
+        <magnetic-compass>
+            <pitch-offset-deg type="double">-2.7</pitch-offset-deg>
+        </magnetic-compass>
+    </instrumentation>
     
 </PropertyList>

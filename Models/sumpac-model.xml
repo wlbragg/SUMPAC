@@ -157,6 +157,18 @@
         </condition>
     </model>
 
+    <model>
+		<path>Instruments/winter-asi-6221/winter-asi-6221.xml</path>
+	</model>
+
+    <model>
+		<path>Instruments/57mm_compass/57mm_compass.xml</path>
+	</model>
+
+    <model>
+		<path>Instruments/alti-4110/winter-4110.xml</path>
+	</model>
+
     <animation>
         <type>select</type>
         <object-name>wing-left-leading-edge</object-name>

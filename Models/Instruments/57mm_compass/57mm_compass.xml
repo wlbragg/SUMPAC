@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<PropertyList>
+    <path>57mm_compass.ac</path>
+	<effect>
+		<inherits-from>Models/Effects/instrument_glass</inherits-from>
+		<object-name>compass.glass</object-name>
+	</effect>
+	<animation>
+		<type>material</type>
+		<object-name>compass.scala</object-name>
+		<emission>
+		<red>0.28</red>
+		<green>0.14</green>
+		<blue>0.07</blue>
+		<factor-prop>sim/model/instruments-light</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>compass.scala</object-name>
+		<property>instrumentation/magnetic-compass/indicated-heading-deg</property>
+        <axis>
+            <x1-m>-0.708711</x1-m>
+            <y1-m> 0.003729</y1-m> 
+            <z1-m> 0.295262</z1-m>
+            <x2-m>-0.706819</x2-m>
+            <y2-m> 0.003998</y2-m>
+            <z2-m> 0.289406</z2-m>
+        </axis>
+	</animation>
+</PropertyList>
