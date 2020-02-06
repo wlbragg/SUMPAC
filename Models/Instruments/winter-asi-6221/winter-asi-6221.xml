@@ -10,7 +10,7 @@
 		<object-name>asi.glass</object-name>
 	</effect>
 
- <animation>
+ <!--animation>
   <type>material</type>
   <object-name>ASIface</object-name>
   <object-name>asi.needle</object-name>
@@ -20,24 +20,24 @@
 	  <blue>0.007</blue>
 	  <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
         </emission>
- </animation>
+ </animation-->
 
  <animation>
   <type>rotate</type>
   <object-name>asi.needle</object-name>
   <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
   <interpolation>
-   <entry><ind>  0</ind><dep>    0</dep></entry>
-   <entry><ind>  27</ind><dep>    18</dep></entry>
-   <entry><ind>  32.4</ind><dep>   29.3</dep></entry>
-   <entry><ind>  37.8</ind><dep>   46.18</dep></entry>
-   <entry><ind>  54</ind><dep>  91.25</dep></entry>
-   <entry><ind> 64.79</ind><dep>  106.56</dep></entry>
-   <entry><ind> 75.59</ind><dep>  159.4</dep></entry>
-   <entry><ind> 86.39</ind><dep>  194.5</dep></entry>
-   <entry><ind> 97.19</ind><dep>  229</dep></entry>
-   <entry><ind> 107.99</ind><dep>  263</dep></entry>
-   <entry><ind> 137.69</ind><dep>  346.4</dep></entry>
+   <entry><ind>  0   </ind><dep>    0   </dep></entry>
+   <entry><ind> 27   </ind><dep>  -18   </dep></entry>
+   <entry><ind> 32.4 </ind><dep>  -29.3 </dep></entry>
+   <entry><ind> 37.8 </ind><dep>  -46.18</dep></entry>
+   <entry><ind> 54   </ind><dep>  -91.25</dep></entry>
+   <entry><ind> 64.79</ind><dep> -106.56</dep></entry>
+   <entry><ind> 75.59</ind><dep> -159.4 </dep></entry>
+   <entry><ind> 86.39</ind><dep> -194.5 </dep></entry>
+   <entry><ind> 97.19</ind><dep> -229   </dep></entry>
+   <entry><ind>107.99</ind><dep> -263   </dep></entry>
+   <entry><ind>137.69</ind><dep> -346.4 </dep></entry>
   </interpolation>
     <axis>
         <x1-m>-0.699902</x1-m>
